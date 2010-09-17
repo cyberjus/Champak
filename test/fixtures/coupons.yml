@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  business_id: 1
+  category_id: 1
+  short_description: MyString
+  long_description: MyText
+  valid_from: 2010-09-17
+  valid_until: 2010-09-17
+  image: MyString
+
+two:
+  business_id: 1
+  category_id: 1
+  short_description: MyString
+  long_description: MyText
+  valid_from: 2010-09-17
+  valid_until: 2010-09-17
+  image: MyString
