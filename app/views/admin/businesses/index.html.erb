@@ -1,0 +1,16 @@
+<h2><%= @title %></h2>
+
+<%= link_to 'Create New Business', new_admin_business_path %><br/><br/>
+
+<table>
+  <% @businesses.each do |business| %>
+    <tr> 
+      <td><%= link_to business.name, edit_admin_business_path(business) %></td>
+      <td><%= business.address %></td>
+      <td><%= business.town %></td>
+      <td><%= business.zipcode %></td>
+    </tr>
+  <% end %>
+</table>
+  
+<%= will_paginate %>

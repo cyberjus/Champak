@@ -1,0 +1,13 @@
+<h2><%= @title %></h2>
+
+<%= link_to 'Create New Category', new_admin_category_path %><br/><br/>
+
+<table>
+  <% @categories.each do |category| %>
+    <tr> 
+      <td><%= link_to category.name, edit_admin_category_path(category) %></td>
+    </tr>
+  <% end %>
+</table>
+  
+<%= will_paginate %>

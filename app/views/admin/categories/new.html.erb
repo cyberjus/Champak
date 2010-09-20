@@ -1,0 +1,8 @@
+<h2>Add Category</h2>
+
+<%= form_for(@category, :url => admin_categories_path ) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <div class="actions">
+    <%= f.submit "Add", :disable_with => 'Saving...' %>
+  </div>
+<% end %>

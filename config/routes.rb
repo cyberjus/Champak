@@ -1,8 +1,9 @@
 Champax::Application.routes.draw do
 
-  resources :businesses
-  resources :categories 
-  resources :coupons
-  
+  namespace :admin do
+    resources :businesses
+    resources :categories 
+    resources :coupons
+  end
 
 end

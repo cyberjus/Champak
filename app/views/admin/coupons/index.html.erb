@@ -1,0 +1,16 @@
+<h2><%= @title %></h2>
+
+<%= link_to 'Create New Coupon', new_admin_coupon_path %><br/><br/>
+
+<table>
+  <% @coupons.each do |coupon| %>
+    <tr> 
+      <td></td>
+      <td><%= coupon.short_description %></td>
+      <td><%= coupon.valid_from %></td>
+      <td><%= coupon.valid_until %></td>
+    </tr>
+  <% end %>
+</table>
+  
+<%= will_paginate %>
