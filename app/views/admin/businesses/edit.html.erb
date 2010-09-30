@@ -1,8 +1,8 @@
-<h2><%= @business.name %></h2>
+<div class="title">Edit Business</div>
 
-<%= form_for(@business, :url => admin_business_path ) do |f| %>
+<%= form_for(@business, :url => admin_business_path, :html => { :class => 'admin_form' } ) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
   <div class="actions">
-    <%= f.submit "Update", :disable_with => 'Saving...' %>
+    <%= f.submit "Update", :disable_with => 'Saving...', :class => 'lg_button' %>
   </div>
 <% end %>

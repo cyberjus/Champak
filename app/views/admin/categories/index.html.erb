@@ -1,11 +1,18 @@
-<h2><%= @title %></h2>
+<% content_for :side_menu do %>
+  <div id="admin_side_menu">
+    <%= button_to 'Create New Category', new_admin_category_path, :method => :get, :class => 'lg_button' %>
+  </div>
+<% end %>
 
-<%= link_to 'Create New Category', new_admin_category_path %><br/><br/>
+<div class="title"><%= @title %></div>
 
-<table>
+<table class="admin_table">
+  <tr>
+    <th>Name</th>
+  </tr>
   <% @categories.each do |category| %>
-    <tr> 
-      <td><%= link_to category.name, edit_admin_category_path(category) %></td>
+    <tr onClick="document.location='<%= edit_admin_category_path(category) %>'"> 
+      <td><%= category.name  %></td>
     </tr>
   <% end %>
 </table>

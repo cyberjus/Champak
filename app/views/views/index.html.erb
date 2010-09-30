@@ -1,0 +1,7 @@
+<div class="title"><%= @title %></div> 
+
+<% unless @coupon_items.empty? %>
+    <%= render :partial => 'views/coupon_item', :collection => @coupon_items %>
+<% else %>
+    <div class="not_found">No Coupons Found</div>    
+<% end %>

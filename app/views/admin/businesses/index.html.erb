@@ -1,11 +1,21 @@
-<h2><%= @title %></h2>
+<% content_for :side_menu do %>
+  <div id="admin_side_menu">
+    <%= button_to 'Create New Business', new_admin_business_path, :method => :get, :class => 'lg_button' %>
+  </div>
+<% end %>
 
-<%= link_to 'Create New Business', new_admin_business_path %><br/><br/>
+<div class="title"><%= @title %></div>
 
-<table>
+<table class="admin_table">
+  <tr>
+    <th>Business Name</th>
+    <th>Address</th>
+    <th>Town</th>
+    <th>Zip Code</th>
+  </tr>
   <% @businesses.each do |business| %>
-    <tr> 
-      <td><%= link_to business.name, edit_admin_business_path(business) %></td>
+    <tr onClick="document.location='<%= edit_admin_business_path(business) %>'"> 
+      <td><%= business.name %></td>
       <td><%= business.address %></td>
       <td><%= business.town %></td>
       <td><%= business.zipcode %></td>

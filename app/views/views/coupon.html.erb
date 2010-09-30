@@ -1,0 +1,16 @@
+<div class="coupon">
+<div class="right_content">
+	<div class="action_buttons">
+	  <div class="coupon_valid_dates"><span>Expires</span> <%= @coupon.valid_until.strftime('%D') %></div>
+	  <%= link_to image_tag("print_and_use.png", :size => "180x37", :alt => "Print And Use This Coupon"), "/print/#{@coupon.id}", :class => "print_coupon_link" %>
+  </div>
+</div> 
+<div class="business_name"><%= @coupon.business.name %></div>
+<div class="business_address"><%= @coupon.business.town %></div>
+<div class="coupon_short_description"><%= @coupon.short_description %></div>
+<div class="coupon_long_description"><%= @coupon.long_description %></div>
+
+<div class="clear20"></div>
+<%= image_tag @coupon.image.url %>
+
+</div>

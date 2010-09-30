@@ -1,0 +1,41 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="subtitle">Connections</div>
+<div class="field">
+  <%= f.label :business_id, "Business" %>
+  <%= select(:coupon, :business_id, @businesses_select) %>
+</div>
+<div class="field">
+  <%= f.label :category_id, "Category" %>
+  <%= select(:coupon, :category_id, @categories_select) %>
+</div>
+<div class="subtitle">Details</div>
+<div class="field">
+  <%= f.label :short_description %>
+  <%= f.text_field :short_description %>
+</div>
+<div class="field">
+  <%= f.label :valid_from %>
+  <%= date_select :coupon, :valid_from, { :order => [:month,:day,:year] }, :class => 'date_select' %>
+</div>
+<div class="field">
+  <%= f.label :valid_until %>
+  <%= date_select :coupon, :valid_until, { :order => [:month,:day,:year] }, :class => 'date_select' %>
+</div>
+<div class="field">
+  <%= f.label :long_description %>
+  <%= f.text_area :long_description %>
+</div>
+<div class="subtitle">Image</div>
+<div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+</div>
+<div class="field">
+  <label>Current Image</label>
+  <% if @coupon.image.exists? %>  
+    <%= image_tag @coupon.image.url %>
+  <% else %>
+    <div class="not_found">No Image Set</div>
+  <% end %>
+</div>
+

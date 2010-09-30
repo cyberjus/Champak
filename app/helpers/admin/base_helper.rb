@@ -1,7 +1,7 @@
 module Admin::BaseHelper
   
-    def admin_title
-    base_title = "Champax ADMIN"
+  def admin_title
+    base_title = "Champak ADMIN"
     if @title.nil?
       base_title
     else

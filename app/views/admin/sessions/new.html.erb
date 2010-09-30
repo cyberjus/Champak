@@ -1,0 +1,14 @@
+
+<%= form_for(:session, :url => admin_sessions_path, :html => { :class => 'login_form' }) do |f| %>
+  <div class="field">
+    <%= f.label :login %>
+    <%= f.text_field :login %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Login", :class => 'lg_button' %>
+  </div>
+<% end %>

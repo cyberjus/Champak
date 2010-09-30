@@ -1,0 +1,8 @@
+<div class="title">Add Coupon</div>
+
+<%= form_for(@coupon, :url => admin_coupons_path, :html => { :class => 'admin_form', :multipart => true }) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <div class="actions">
+    <%= f.submit "Create", :disable_with => 'Saving...', :class => 'lg_button' %>
+  </div>
+<% end %>

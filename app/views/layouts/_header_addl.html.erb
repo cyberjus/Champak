@@ -1,0 +1,21 @@
+<div id="header_links">
+<ul>
+		<li>About Us</li>
+		<li>Why Coupons</li>
+		<li>How it Works</li>
+		<li>Contact Us</li>
+	</ul>
+</div>
+<div id="header_search">
+	Search the site<br />
+	<input type="text" class="search_text" name="search" />
+    <input type="button" value="Search" class="search_button sm_button" />
+</div>
+<div id="header_saved">
+	<div class="saved_title">Total Saved:</div><div class="saved_dollar"> $ </div>
+	<div id="header_saved_numbers">
+	  <% (0..7).each do |e| %>
+	    <%= image_tag("counter_0.png", { :size=>'24x33', :alt => "0" }) %>
+    <% end %>
+  </div>
+</div>

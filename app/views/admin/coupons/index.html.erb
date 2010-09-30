@@ -1,11 +1,20 @@
-<h2><%= @title %></h2>
+<% content_for :side_menu do %>
+  <div id="admin_side_menu">
+    <%= button_to 'Create New Coupon', new_admin_coupon_path, :method => :get, :class => 'lg_button' %>
+  </div>
+<% end %>
 
-<%= link_to 'Create New Coupon', new_admin_coupon_path %><br/><br/>
-
-<table>
+<div class="title"><%= @title %></div>
+<table class="admin_table">
+  <tr>
+    <th>Business Name</th>
+    <th>Short Description</th>
+    <th>Valid From</th>
+    <th>Valid Until</th> 
+  </tr>
   <% @coupons.each do |coupon| %>
-    <tr> 
-      <td></td>
+    <tr onClick="document.location='<%= edit_admin_coupon_path(coupon) %>'"> 
+      <td><%= coupon.business.name %></td>
       <td><%= coupon.short_description %></td>
       <td><%= coupon.valid_from %></td>
       <td><%= coupon.valid_until %></td>

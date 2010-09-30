@@ -1,4 +1,5 @@
 class Admin::BusinessesController < Admin::BaseController
+  before_filter :authenticate
   
   def index 
     @businesses = Business.paginate(:page => params[:page])

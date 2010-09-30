@@ -1,0 +1,8 @@
+<div id="admin_header_title">Administration</div>
+<div id="admin_header_links">
+  <ul>
+    <li><%= link_to 'Main Site', root_path %></li>
+    <li><%= link_to 'Change Password', edit_admin_admin_user_path(current_admin_user) %></li>
+    <li><%= link_to 'Logout', admin_logout_path  %></li>  
+  </ul>
+</div>

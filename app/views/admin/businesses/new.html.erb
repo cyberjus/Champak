@@ -1,8 +1,8 @@
-<h2>Add Business</h2>
+<div class="title">Add Business</div>
 
-<%= form_for(@business, :url => admin_businesses_path ) do |f| %>
+<%= form_for(@business, :url => admin_businesses_path, :html => { :class => 'admin_form' }) do |f| %>
   <%= render :partial => 'form', :locals => { :f => f } %>
   <div class="actions">
-    <%= f.submit "Add", :disable_with => 'Saving...' %>
+    <%= f.submit "Create", :disable_with => 'Saving...', :class => 'lg_button' %>
   </div>
 <% end %>
