@@ -1,0 +1,14 @@
+development:
+  bucket: champak_dev
+  access_key_id: AKIAI5LR6YEPBMXBC4KQ
+  secret_access_key: 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
+
+test:
+  bucket: champak_test
+  access_key_id: AKIAI5LR6YEPBMXBC4KQ
+  secret_access_key: 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
+
+production:
+  bucket: champak_prod
+  access_key_id: AKIAI5LR6YEPBMXBC4KQ
+  secret_access_key: 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
