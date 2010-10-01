@@ -2,7 +2,7 @@ class Admin::CategoriesController < Admin::BaseController
   before_filter :authenticate
   
   def index 
-    @categories = Category.paginate(:page => params[:page])
+    @categories = Category.order('name').paginate(:page => params[:page])
     @title = "Categories"
   end
   

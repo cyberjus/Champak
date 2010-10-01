@@ -2,7 +2,7 @@ class Admin::BusinessesController < Admin::BaseController
   before_filter :authenticate
   
   def index 
-    @businesses = Business.paginate(:page => params[:page])
+    @businesses = Business.order('name').paginate(:page => params[:page])
     @title = "Businesses"
   end
   

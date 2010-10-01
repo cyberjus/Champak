@@ -2,7 +2,7 @@ class Admin::CouponsController < Admin::BaseController
   before_filter :authenticate
   
   def index 
-    @coupons = Coupon.paginate(:page => params[:page])
+    @coupons = Coupon.includes(:business).order('businesses.name, coupons.created_at').paginate(:page => params[:page])
     @title = "Coupons"
   end
   
