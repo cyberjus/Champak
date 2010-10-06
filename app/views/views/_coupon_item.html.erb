@@ -2,8 +2,8 @@
 	<div class="right_content">
   	<div class="coupon_valid_dates"><span>Expires</span> <%= coupon_item.valid_until.strftime('%D') %></div>
 	  <div class="action_buttons">
-  	  <%= link_to image_tag("view.png", :size => "58x37", :alt => "View"), url_escape("/coupons/#{coupon_item.id}/#{coupon_item.business.name}/#{coupon_item.short_description}/") %>
-  	  <%= image_tag("print.png", :size => "58x37", :alt => "Print") %>
+  	  <%= link_to image_tag("view.png", :size => "58x37", :alt => "View"), url_escape("/#{coupon_item.business.name}-Coupons/#{coupon_item.short_description}/#{coupon_item.id}/") %>
+  	  <%= link_to image_tag("print.png", :size => "58x37", :alt => "Print And Use This Coupon"), "/print/#{coupon_item.id}", :class => "print_coupon_link" %>
 	  </div> 
   </div> 
 	<div class="business_name"><%= coupon_item.business.name %></div>

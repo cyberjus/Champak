@@ -25,6 +25,7 @@ class ViewsController < ApplicationController
   
   def print_coupon
     @coupon = Coupon.find(params[:id])
+    @coupon.print
     @title = "Coupon Found at www.Champak.net"
     render :layout => 'print'
   end

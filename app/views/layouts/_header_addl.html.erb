@@ -14,8 +14,8 @@
 <div id="header_saved">
 	<div class="saved_title">Total Saved:</div><div class="saved_dollar"> $ </div>
 	<div id="header_saved_numbers">
-	  <% (0..7).each do |e| %>
-	    <%= image_tag("counter_0.png", { :size=>'24x33', :alt => "0" }) %>
-    <% end %>
+	  <% total_savings.value.to_i.to_s.rjust(7,"0").split(//).each do |e| %>
+	    <%= image_tag("counter_#{e}.png", { :size=>'24x33', :alt => "0" }) %>
+	  <% end %>
   </div>
 </div>

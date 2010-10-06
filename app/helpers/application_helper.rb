@@ -27,4 +27,9 @@ module ApplicationHelper
     URI.escape(url.sub('%',' percent').tr(' ', '-'))
   end
   
+  def total_savings
+    @total_savings ||= Savings.first()
+  end
+
+  
 end

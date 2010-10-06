@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100928002940) do
+ActiveRecord::Schema.define(:version => 20101006155458) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "login"
@@ -53,9 +53,17 @@ ActiveRecord::Schema.define(:version => 20100928002940) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "prints",             :default => 0
+    t.float    "value",              :default => 0.0
   end
 
   add_index "coupons", ["business_id"], :name => "index_coupons_on_business_id"
   add_index "coupons", ["category_id"], :name => "index_coupons_on_category_id"
+
+  create_table "savings", :force => true do |t|
+    t.float    "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -22,7 +22,7 @@ a:hover { color:#BF5B25; text-decoration:underline; }
 #header_search input.search_text { width:230px; border:1px solid #999; font-size:16px; margin-top:0px; }
 #header_search input.search_button { line-height:18px; height:22px; float:right; font-size: 10px; }
 #header_saved { position:absolute; top:5px; left:530px; font-weight:bold; }
-#header_saved img { margin:0px 1px; font-size:12px; }
+#header_saved img { margin:0px 1px; border:1px solid #333; }
 #header_saved div { float:left; }
 #header_saved div.saved_title { margin-top:7px; margin-right:10px; }
 #header_saved div.saved_dollar { margin-top:0px; font-size:20px; font-family:Arial,Helvetica,Sans-Serif; } 
