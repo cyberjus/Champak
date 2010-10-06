@@ -1,5 +1,5 @@
 class Coupon < ActiveRecord::Base
-  attr_accessible :business_id, :category_id, :short_description, :long_description, :valid_from, :valid_until, :image, :categories_attributes, :value
+  attr_accessible :business_id, :category_id, :short_description, :long_description, :valid_from, :valid_until, :image, :categories_attributes, :value, :featured, :online_only
   has_attached_file :image, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => "coupon/:id/:attachment/:style.:extension"
   
   belongs_to :business

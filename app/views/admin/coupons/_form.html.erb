@@ -15,7 +15,7 @@
 </div>
 <div class="field">
   <%= f.label :value, "Estimated Value" %>
-  <%= f.text_field :value %>
+  <%= f.text_field :value, :class => 'short_field' %>
 </div>
 <div class="field">
   <%= f.label :valid_from %>
@@ -28,6 +28,13 @@
 <div class="field">
   <%= f.label :long_description %>
   <%= f.text_area :long_description %>
+</div>
+<div class="subtitle">Options</div>
+<div class="field">
+  <%= f.label :featured, :class => 'check_box' %>
+  <%= f.check_box :featured, :class => 'check_box' %>
+  <%= f.label :online_only, :class => 'check_box' %>
+  <%= f.check_box :online_only, :class => 'check_box' %>
 </div>
 <div class="subtitle">Image</div>
 <div class="field">

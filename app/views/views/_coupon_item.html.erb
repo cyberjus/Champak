@@ -9,4 +9,7 @@
 	<div class="business_name"><%= coupon_item.business.name %></div>
   <div class="business_address"><%= coupon_item.business.town %></div>
   <div class="coupon_short_description"><%= link_to coupon_item.short_description, url_escape("/#{coupon_item.business.name}-Coupons/#{coupon_item.short_description}/#{coupon_item.id}/") %></div>
+  <% if coupon_item.online_only %>
+    <div class="online_only"><%= image_tag "online_only.png", :size => '50x50', :alt => "Online Only" %></div>
+  <% end %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101006155458) do
+ActiveRecord::Schema.define(:version => 20101006195414) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "login"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20101006155458) do
     t.datetime "image_updated_at"
     t.integer  "prints",             :default => 0
     t.float    "value",              :default => 0.0
+    t.boolean  "featured"
+    t.boolean  "online_only"
   end
 
   add_index "coupons", ["business_id"], :name => "index_coupons_on_business_id"

@@ -44,8 +44,7 @@ a:hover { color:#BF5B25; text-decoration:underline; }
 #admin_body { margin-top:-3px; background:url(../images/admin_side_menu_bg.png) right repeat-y; }
 #admin_right_bar { width:258px; float:right; } 
 
-div.coupon_item { border-bottom:solid 1px #999; padding:10px;  }
-
+div.coupon_item { position:relative; border-bottom:solid 1px #999; padding:10px;  }
 div.business_address { font-size:10px; }
 div.coupon_short_description { font-size:24px; margin-top:10px; background:url(../images/coupon_short_description_bg.png) left top no-repeat; padding:7px 0px 0px 7px; }
 div.not_found { margin-top:20px; font-size:14px; font-style:italic; text-align:center; }
@@ -53,6 +52,7 @@ div.coupon_long_description { margin-left:20px; width:400px; border-top:2px soli
 div.business_name { font-size:16px; font-weight:bold; }
 div.coupon_valid_dates { position:relative; font-size:20px; font-weight:bold; color:#274274; text-align:center; margin:5px 0px; border-bottom:1px dotted #666;} 
 div.coupon_valid_dates span { font-size:10px; position:absolute; color:#666; top:-8px; left:0px; }
+div.coupon_item div.online_only { position:absolute; right:150px; top:5px; }
 
 #side_menu { background:url(../images/side_menu_middle.png) repeat-y; }
 #side_menu_content { height:141px; background:url(../images/side_menu_top.png) top no-repeat; padding:15px 15px; } 
@@ -75,8 +75,10 @@ table.admin_table tr:hover { background-color:#EEE; }
 form.admin_form { }
 form.admin_form .field { margin-left:15px; }
 form.admin_form .field label { display:block; color:#666; }
+form.admin_form .field label.check_box { display:inline; }
 form.admin_form .field input { font-size:14px; width:500px; }
 form.admin_form .field input.short_field { font-size:14px; width:200px; }
+form.admin_form .field input.check_box { width:20px; }
 form.admin_form .field textarea { font-size:14px; width:500px; height:150px; }
 form.admin_form .field select { font-size:14px; width:500px; }
 form.admin_form .field .date_select { width:auto; }
