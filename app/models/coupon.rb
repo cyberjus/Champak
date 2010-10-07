@@ -12,7 +12,7 @@ class Coupon < ActiveRecord::Base
   validates :value, :numericality => true
   
   def print 
-    self.prints += 1
+    self.prints.nil? ? self.prints = 1 : self.prints += 1 
     self.save
     Savings.first().add_to(self.value)        
   end  
