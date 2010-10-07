@@ -1,7 +1,7 @@
 class CreateSavings < ActiveRecord::Migration
   def self.up
     create_table :savings do |t|
-      t.column :value, :double
+      t.column :value, :decimal
 
       t.timestamps
     end

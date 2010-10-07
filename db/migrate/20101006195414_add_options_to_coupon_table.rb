@@ -1,7 +1,7 @@
 class AddOptionsToCouponTable < ActiveRecord::Migration
   def self.up
-    add_column :coupons, :featured, :boolean
-    add_column :coupons, :online_only, :boolean
+    add_column :coupons, :featured, :boolean, :default => false
+    add_column :coupons, :online_only, :boolean, :default => false
   end
 
   def self.down
