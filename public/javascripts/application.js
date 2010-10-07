@@ -6,7 +6,18 @@ $(function() {
   $('#select_category').change(select_category);
   $('#select_town').change(select_town);
   $('.print_coupon_link').click(function(e) { display_print_coupon($(this).attr('href')); e.preventDefault(); return false; });
+  if ($('#featured_coupons').length>0) {
+		$('#featured_selector_prev').click(featured_show_prev);
+		$('#featured_selector_next').click(featured_show_next);
+		$('.featured_selector_num').click(function(e) { featured_show_num($(this).html()) });
+		if ($('.featured_coupon').length>0) {
+			featured_show_num(1);	
+		}
+	}
 });
+
+// Variables
+var featured_timeout;
 
 function select_category() {
   if (this.value != "") {
@@ -24,3 +35,40 @@ function display_print_coupon(loc) {
   var disp_settings="height=500,width=500,toolbar=no,location=no,directories=no,menubar=no,resizable=no,left=50,top=20,scrollbars=no";    
   var print_window = window.open(loc, 'print_window', disp_settings);
 }   
+	
+function featured_cycle() {
+	clearTimeout(featured_timeout);	
+	featured_timeout = setTimeout("featured_show_next()", 7*1000);
+}
+
+function featured_show_next() {
+	featured_cycle();
+	var elem = featured_hide_current();
+	if (elem.next('.featured_coupon').length>0){
+		elem.next('.featured_coupon').fadeIn('slow');
+	} else {
+		$('.featured_coupon:first').fadeIn('slow');	
+	}
+}
+
+function featured_show_prev() {
+	featured_cycle();
+	var elem = featured_hide_current();
+	if (elem.prev('.featured_coupon').length>0){
+		elem.prev('.featured_coupon').fadeIn('slow');
+	} else {
+		$('.featured_coupon:last').fadeIn('slow');	
+	}
+}
+
+function featured_show_num(num) {
+	featured_cycle();
+	var elem = featured_hide_current();
+	$('#featured_coupon_'+num).fadeIn('slow');	
+}
+
+function featured_hide_current() {
+	var elem = $('.featured_coupon:visible:first');
+	elem.fadeOut('slow');
+	return elem;
+}

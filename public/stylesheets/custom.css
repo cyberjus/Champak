@@ -44,6 +44,8 @@ a:hover { color:#BF5B25; text-decoration:underline; }
 #admin_body { margin-top:-3px; background:url(../images/admin_side_menu_bg.png) right repeat-y; }
 #admin_right_bar { width:258px; float:right; } 
 
+img.sub_header_bar { margin:10px 0px 5px 0px; }
+
 div.coupon_item { position:relative; border-bottom:solid 1px #999; padding:10px;  }
 div.business_address { font-size:10px; }
 div.coupon_short_description { font-size:24px; margin-top:10px; background:url(../images/coupon_short_description_bg.png) left top no-repeat; padding:7px 0px 0px 7px; }
@@ -65,6 +67,14 @@ div.coupon_item div.online_only { position:absolute; right:150px; top:5px; }
 
 #error_explanation p { font-weight:bold; margin-bottom:3px; }
 #error_explanation ul { list-style:none; margin:0px 0px 0px 10px; padding:0px; }
+
+#featured_coupons { position:relative; width:636px; height:175px; background-color:#000; overflow:hidden; border:2px solid #000; }
+#featured_coupons .featured_coupon { position:absolute; top:0px; left:0px; display:none; width:100%; text-align:center; }
+#featured_coupons .featured_description { position:absolute; top:100px; left:0px; background:url(../images/70_percent_black_bg.png) repeat; color:#FFF; font-size:28px; padding:10px; white-space:nowrap; text-align:left; }
+#featured_coupons .featured_description a { color:#FFF; }
+#featured_coupons .featured_business { font-size:12px; font-weight:bold; }
+#featured_selector { position:absolute; top:0px; right:0px; background:url(../images/70_percent_black_bg.png) repeat; color:#FFF; padding:5px; font-size:14px; }
+#featured_selector img { vertical-align:middle; cursor:pointer; }
 
 table.admin_table { border-collapse:collapse; width:100%; border-bottom:2px solid #666; }
 table.admin_table tr { height:40px; background:#CCC; border-bottom:solid 1px #FFF; cursor:pointer; }
@@ -101,3 +111,4 @@ img.print_coupon { width:100%; }
 .lg_button { color:#fff; font: bold 15px Verdana,Sans-Serif; background-color:#469555; border:2px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }
 .sm_button { color:#fff; font: bold 11px Verdana,Sans-Serif; background-color:#469555; border:1px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; } 
 .center { text-align:center; } 
+.clickable { cursor:pointer; }

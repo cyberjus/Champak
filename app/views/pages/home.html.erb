@@ -1,1 +1,21 @@
-<%= image_tag "main_coupon_guide.png", :size => "644x157" %>
+<%= image_tag "main_coupon_guide.png", :size => '644x157', :alt => "Coupon Guide" %>
+
+<%= image_tag "featured_coupons.png", :size => '640x27', :alt => "Featured Coupons", :class => 'sub_header_bar'  %>
+
+<div id="featured_coupons">
+<% @featured_coupons.each_with_index do |coupon, i| %>
+  <div id="featured_coupon_<%= (i+1) %>" class="featured_coupon">
+		<%= image_tag coupon.image.url %>
+		<div class="featured_description"><%= link_to coupon.short_description, url_escape("/#{coupon.business.name}-Coupons/#{coupon.short_description}/#{coupon.id}/") %> <div class="featured_business"><%= coupon.business.name %></div></div>
+	</div>
+<% end %>
+  <div id="featured_selector">
+    <%= image_tag "featured_left.png", :id=> 'featured_selector_prev', :size=> '14x14' %>
+    	<span id="featured_selector_items">
+    	  <% @featured_coupons.each_with_index do |coupon, i| %>
+    	    <span class="featured_selector_num clickable"><%= (i+1) %></span>
+    	  <% end %>
+  	  </span>
+	  <%= image_tag "featured_right.png", :id=> 'featured_selector_next', :size=> '14x14' %>
+	</div>
+</div>
