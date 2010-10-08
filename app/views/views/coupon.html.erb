@@ -8,7 +8,7 @@
 <div class="business_name"><%= @coupon.business.name %></div>
 <div class="business_address"><%= @coupon.business.town %></div>
 <div class="coupon_short_description"><%= @coupon.short_description %></div>
-<div class="coupon_long_description"><%= @coupon.long_description %></div>
+<div class="coupon_long_description"><%= @coupon.long_description %><br/>Posted: <%= @coupon.created_at.strftime('%D') %></div>
 
 <div class="clear20"></div>
 <%= image_tag @coupon.image.url %>
@@ -16,6 +16,16 @@
 
 
 
-<a class="addthis_button"></a>
+<div class="coupon_social_links">
+  Share This Coupon
+  <div class="addthis_default_style addthis_toolbox addthis_32x32_style">
+    <a class="addthis_button_email"></a>
+    <a class="addthis_button_facebook"></a>
+    <a class="addthis_button_twitter"></a>
+    <a class="addthis_button_digg"></a>
+    <a class="addthis_button_blogger"></a>
+    <a class="addthis_button_compact"></a>
+  </div>
+</div>
 
 </div>

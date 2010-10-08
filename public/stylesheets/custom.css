@@ -63,7 +63,7 @@ div.coupon_item div.online_only { position:absolute; right:150px; top:5px; }
 #side_menu_content .side_menu_field select { border:1px solid #999; height:22px; font-size:12px; width:225px; margin:3px 0px; }
 #side_menu_content .side_menu_field input.zipcode { font-size:12px; height:22px; width:170px; margin:3px 0px; }
 #side_menu_content .side_menu_field input.sm_button { float:right; height:26px; font-size: 10px; margin:3px 0px; }
-#admin_side_menu { text-align:center; margin-top:20px; } 
+#admin_side_menu { text-align:ce nter; margin-top:20px; } 
 
 #error_explanation p { font-weight:bold; margin-bottom:3px; }
 #error_explanation ul { list-style:none; margin:0px 0px 0px 10px; padding:0px; }
@@ -105,6 +105,8 @@ div.clear20 { height:20px; clear:both; }
 div.title { font-size:26px; border-bottom:2px solid #274274; margin-bottom:5px;} 
 div.subtitle { font-size:16px; font-weight:bold; color:#981F27; margin-top:10px; margin-bottom:5px; }
 div.right_content { float:right; text-align:right; border:1px solid #274274; padding:5px; background:#FFFF9F; }
+
+div.coupon_social_links { float:right; margin-top:10px; text-align:center; font-size:14px; font-weight:bold; color:#469555; }
 
 img.print_coupon { width:100%; }
 
