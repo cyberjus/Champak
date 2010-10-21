@@ -59,7 +59,7 @@ class ViewsController < ApplicationController
       when 'expiring' then 'valid_until, businesses.name, short_description'
       when 'popular' then 'prints DESC, businesses.name, short_description'
       when 'savings' then 'value DESC, businesses.name, short_description' 
-      when 'newest' then 'created_at DESC, businesses.name, short_description'      
+      when 'newest' then 'coupons.created_at DESC, businesses.name, short_description'      
       else 'businesses.name, short_description'
     end 
   end
