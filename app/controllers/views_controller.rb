@@ -24,7 +24,7 @@ class ViewsController < ApplicationController
   def by_hot
     @title = "Hot Coupons"
     params[:sort] ||= 'popular'
-    sql = "SELECT coupons.*, businesses.name  FROM (SELECT coupons.* FROM coupons ORDER BY prints DESC LIMIT 0,10) as coupons JOIN businesses ON businesses.id = coupons.business_id WHERE 1=1 "
+    sql = "SELECT coupons.*, businesses.name  FROM (SELECT coupons.* FROM coupons ORDER BY prints DESC LIMIT 10) as coupons JOIN businesses ON businesses.id = coupons.business_id WHERE 1=1 "
     sql += " AND  businesses.town = '#{params[:filter_town].tr('-', ' ')}' " if filter_town 
     sql += " AND  category_id = '#{params[:filter_category]}' " if filter_category  
     sql += "ORDER BY #{sort_by}"
