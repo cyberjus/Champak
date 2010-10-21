@@ -1,7 +1,41 @@
+<% content_for :left_bar_addl do %>
+  <div id="list_refine">
+    <div class="list_refine_title">Refine Coupon List</div>
+    <div id="list_refine_body">  
+      <div id="list_refine_sort">
+        <div class="list_refine_subtitle">Sort Coupons By</div>
+          <%= sort_option('By Business Name', :business) %><br/>  
+          <%= sort_option('By Description', :description) %><br/> 
+          <%= sort_option('Expiring Soonest', :expiring) %><br/> 
+          <%= sort_option('Most Popular', :popular) %><br/> 
+          <%= sort_option('Most Savings', :savings) %><br/> 
+          <%= sort_option('Newest', :newest) %>
+      </div>
+      <div class='clear10'></div>
+      <div id="list_refine_filter">
+        <div class="list_refine_subtitle">Filter Coupons By</div>
+          <% if !@filter_category.nil? && params[:action] != "by_category" %> 
+            <div class='list_refine_filter_option'><%= image_tag "cancel_10.png", :class => 'list_refine_filter_option_remove', 'data-param' => 'filter_category' %> Category: <%= @filter_category.name %></div>
+          <% elsif params[:action] != "by_category" %>
+            <div class='list_refine_filter_option'><%= filter_by_category(@coupon_items) %></div>
+          <% end %> 
+          <% if !@filter_town.nil? && params[:action] != "by_town" %> 
+            <div class='list_refine_filter_option'><%= image_tag "cancel_10.png", :class => 'list_refine_filter_option_remove', 'data-param' => 'filter_town' %> Town: <%= @filter_town %></div>
+          <% elsif params[:action] != "by_town" %>
+            <div class='list_refine_filter_option'><%= filter_by_town(@coupon_items) %></div> 
+          <% end %>          
+      </div>
+    <div class='clear10'></div>
+    <%= link_to "Reset Refinements", request.path %>
+    </div>
+  </div>
+<% end %>
+
 <div class="title"><%= @title %></div> 
 
 <% unless @coupon_items.empty? %>
     <%= render :partial => 'views/coupon_item', :collection => @coupon_items %>
+    <div class='coupon_paging'><%= will_paginate @coupon_items %></div>
 <% else %>
     <div class="not_found">No Coupons Found</div>    
 <% end %>

@@ -11,6 +11,8 @@ class Coupon < ActiveRecord::Base
   validates :valid_until, :presence => true
   validates :value, :numericality => true
   
+  scope :active, where('valid_until >= ? ', Date.today)
+  
   def print 
     self.prints.nil? ? self.prints = 1 : self.prints += 1 
     self.save

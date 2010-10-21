@@ -12,9 +12,12 @@ Champax::Application.routes.draw do
     match '/logout', :to => 'sessions#destroy'
   end
   
+  match "/New-Coupons" => 'views#by_new', :as => :coupons_by_new 
+  match "/Hot-Coupons" => 'views#by_hot', :as => :coupons_by_hot 
+  match "/Online-Only-Coupons" => 'views#by_online_only', :as => :coupons_by_online_only
   match "/:name/c/" => 'views#by_category'
   match "/:name/t/" => 'views#by_town'
-  match "/:business_name/:short_description/:id/" => 'views#coupon'
+  match "/:business_name/:short_description/:id/" => 'views#coupon', :constraints => { :short_description => /.*/ }
   match "/print/:id" => 'views#print_coupon'
   
   root :to => 'pages#home'

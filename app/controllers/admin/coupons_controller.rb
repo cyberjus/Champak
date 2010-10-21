@@ -9,6 +9,9 @@ class Admin::CouponsController < Admin::BaseController
   def new
     @coupon = Coupon.new()
     set_selects
+    if @business = Business.find_by_id(params[:business])
+      @coupon.business = @business
+    end
     @title = "Add Coupons" 
   end
   

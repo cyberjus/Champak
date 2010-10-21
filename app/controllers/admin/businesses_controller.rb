@@ -14,7 +14,11 @@ class Admin::BusinessesController < Admin::BaseController
   def create 
     @business = Business.new(params[:business])
     if @business.save
-      redirect_to admin_businesses_path
+      if params[:commit] = "Create and Add Coupon" 
+        redirect_to new_admin_coupon_path(:business => @business.id)
+      else
+        redirect_to admin_businesses_path
+      end
     else
       @title = "Add Business"
       render 'new'

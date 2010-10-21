@@ -5,6 +5,9 @@
 $(function() {
   $('#select_category').change(select_category);
   $('#select_town').change(select_town);
+  $('#filter_category').change(filter_category);
+  $('#filter_town').change(filter_town);
+  $('.list_refine_filter_option_remove').click(remove_filter);
   $('.print_coupon_link').click(function(e) { display_print_coupon($(this).attr('href')); e.preventDefault(); return false; });
   if ($('#featured_coupons').length>0) {
 		$('#featured_selector_prev').click(featured_show_prev);
@@ -29,6 +32,23 @@ function select_town() {
   if (this.value != "") {
     window.location = "/"+(this.value).replace(" ", "-")+"-Coupons/t/";
   }
+}
+
+function filter_town() {
+  if (this.value != "") {
+    window.location = document.URL+(document.URL.indexOf("?")!=-1?"&":"?")+"filter_town="+(this.value).replace(" ", "-");
+  }
+}
+
+function filter_category() {
+  if (this.value != "") {
+    var loc = removeParam('page', document.URL);
+    window.location = loc+(loc.indexOf("?")!=-1?"&":"?")+"filter_category="+(this.value).replace(" ", "-");
+  }
+}
+
+function remove_filter() {
+  window.location = removeParam($(this).attr('data-param'), document.URL);
 }
 
 function display_print_coupon(loc) { 
@@ -71,4 +91,9 @@ function featured_hide_current() {
 	var elem = $('.featured_coupon:visible:first');
 	elem.fadeOut('slow');
 	return elem;
+}
+
+function removeParam(param,url) {
+ var regex = new RegExp(param + "=[^&]+&?"); 
+ return url.replace(regex,'');
 }

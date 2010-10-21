@@ -46,7 +46,7 @@ a:hover { color:#BF5B25; text-decoration:underline; }
 
 img.sub_header_bar { margin:10px 0px 5px 0px; }
 
-div.coupon_item { position:relative; border-bottom:solid 1px #999; padding:10px;  }
+div.coupon_item { position:relative; border-bottom:solid 1px #89A5D8; padding:10px;  }
 div.business_address { font-size:10px; }
 div.coupon_short_description { font-size:24px; margin-top:10px; background:url(../images/coupon_short_description_bg.png) left top no-repeat; padding:7px 0px 0px 7px; }
 div.not_found { margin-top:20px; font-size:14px; font-style:italic; text-align:center; }
@@ -55,6 +55,7 @@ div.business_name { font-size:16px; font-weight:bold; }
 div.coupon_valid_dates { position:relative; font-size:20px; font-weight:bold; color:#274274; text-align:center; margin:5px 0px; border-bottom:1px dotted #666;} 
 div.coupon_valid_dates span { font-size:10px; position:absolute; color:#666; top:-8px; left:0px; }
 div.coupon_item div.online_only { position:absolute; right:150px; top:5px; }
+div.coupon_paging { text-align:right; }
 
 #side_menu { background:url(../images/side_menu_middle.png) repeat-y; }
 #side_menu_content { height:141px; background:url(../images/side_menu_top.png) top no-repeat; padding:15px 15px; } 
@@ -63,7 +64,7 @@ div.coupon_item div.online_only { position:absolute; right:150px; top:5px; }
 #side_menu_content .side_menu_field select { border:1px solid #999; height:22px; font-size:12px; width:225px; margin:3px 0px; }
 #side_menu_content .side_menu_field input.zipcode { font-size:12px; height:22px; width:170px; margin:3px 0px; }
 #side_menu_content .side_menu_field input.sm_button { float:right; height:26px; font-size: 10px; margin:3px 0px; }
-#admin_side_menu { text-align:ce nter; margin-top:20px; } 
+#admin_side_menu { text-align:center; margin-top:20px; } 
 
 #error_explanation p { font-weight:bold; margin-bottom:3px; }
 #error_explanation ul { list-style:none; margin:0px 0px 0px 10px; padding:0px; }
@@ -76,11 +77,23 @@ div.coupon_item div.online_only { position:absolute; right:150px; top:5px; }
 #featured_selector { position:absolute; top:0px; right:0px; background:url(../images/70_percent_black_bg.png) repeat; color:#FFF; padding:5px; font-size:14px; }
 #featured_selector img { vertical-align:middle; cursor:pointer; }
 
+#list_refine { margin:5px; }
+#list_refine_body { border:1px solid #89A5D8; padding:5px 10px; border-top:none; }
+#list_refine .list_refine_title { background-color:#274274; padding:3px; font-size:14px; color:#FFF; }
+#list_refine .list_refine_subtitle { font-size:12x; font-weight:bold; color:#333; height:14px; margin-bottom:5px; }
+#list_refine .list_refine_sort_option { margin-left:10px; font-size:10px; line-height:13px; }
+#list_refine .list_refine_sort_option_active { font-weight:bold; }
+#list_refine .list_refine_filter_option { margin-left:10px; font-size:10px; line-height:16px; }
+#list_refine .list_refine_filter_option select { font-size:10px; }
+#list_refine .list_refine_filter_option_remove { cursor:pointer; }
+
 table.admin_table { border-collapse:collapse; width:100%; border-bottom:2px solid #666; }
 table.admin_table tr { height:40px; background:#CCC; border-bottom:solid 1px #FFF; cursor:pointer; }
 table.admin_table th { background:url(../images/table_header_bg.png) repeat-x; padding:5px; color:#CCC; text-align:center; border-left:solid thin #274274; border-right:solid thin #274274; cursor:default; }
 table.admin_table td { padding:5px; color:#333; border-left:solid thin #AAA; border-right:solid thin #AAA; }
 table.admin_table tr:hover { background-color:#EEE; }
+
+div.admin_paging { text-align:center; }
 
 form.admin_form { }
 form.admin_form .field { margin-left:15px; }
@@ -100,7 +113,8 @@ form.login_form .field label { display:block; color:#666; }
 form.login_form .field input { font-size:14px; width:200px; }
 form.login_form .actions { margin-top:10px; margin-left:20px; }
 
-div.clear { clear:both; } 
+div.clear { clear:both; }
+div.clear10 { height:10px; clear:both; } 
 div.clear20 { height:20px; clear:both; }
 div.title { font-size:26px; border-bottom:2px solid #274274; margin-bottom:5px;} 
 div.subtitle { font-size:16px; font-weight:bold; color:#981F27; margin-top:10px; margin-bottom:5px; }
@@ -111,6 +125,6 @@ div.coupon_social_links { float:right; margin-top:10px; text-align:center; font-
 img.print_coupon { width:100%; }
 
 .lg_button { color:#fff; font: bold 15px Verdana,Sans-Serif; background-color:#469555; border:2px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }
-.sm_button { color:#fff; font: bold 11px Verdana,Sans-Serif; background-color:#469555; border:1px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; } 
+.sm_button { color:#fff; font: bold 11px Verdana,Sans-Serif; background-color:#469555; border:1px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }
 .center { text-align:center; } 
 .clickable { cursor:pointer; }

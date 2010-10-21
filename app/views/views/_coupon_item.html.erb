@@ -2,13 +2,13 @@
 	<div class="right_content">
   	<div class="coupon_valid_dates"><span>Expires</span> <%= coupon_item.valid_until.strftime('%D') %></div>
 	  <div class="action_buttons">
-  	  <%= link_to image_tag("view.png", :size => "58x37", :alt => "View"), url_escape("/#{coupon_item.business.name}-Coupons/#{coupon_item.short_description}/#{coupon_item.id}/") %>
+  	  <%= link_to image_tag("view.png", :size => "58x37", :alt => "View"), "/#{url_escape(coupon_item.business.name)}-Coupons/#{url_escape(coupon_item.short_description)}/#{coupon_item.id}/" %>
   	  <%= link_to image_tag("print.png", :size => "58x37", :alt => "Print And Use This Coupon"), "/print/#{coupon_item.id}", :class => "print_coupon_link" %>
 	  </div> 
   </div> 
 	<div class="business_name"><%= coupon_item.business.name %></div>
   <div class="business_address"><%= coupon_item.business.town %></div>
-  <div class="coupon_short_description"><%= link_to coupon_item.short_description, url_escape("/#{coupon_item.business.name}-Coupons/#{coupon_item.short_description}/#{coupon_item.id}/") %></div>
+  <div class="coupon_short_description"><%= link_to coupon_item.short_description, "/#{url_escape(coupon_item.business.name)}-Coupons/#{url_escape(coupon_item.short_description)}/#{coupon_item.id}/" %></div>
   <% if coupon_item.online_only %>
     <div class="online_only"><%= image_tag "online_only.png", :size => '50x50', :alt => "Online Only" %></div>
   <% end %>
