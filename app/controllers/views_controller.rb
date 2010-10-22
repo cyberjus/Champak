@@ -27,7 +27,7 @@ class ViewsController < ApplicationController
       params[:sort] ||= 'distance'
       @distance = params[:distance] ? param[:distance] : 10
       @title = "Coupons within #{@distance} miles of #{@zipcode}"
-      @coupon_items = Coupon.active.joins(:business).within(@distance, :origin => @zipcode)..order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
+      @coupon_items = Coupon.active.joins(:business).within(@distance, :origin => @zipcode).order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
       render 'coupon_list'
     else 
       @title = "Coupons in #{@zipcode}"
