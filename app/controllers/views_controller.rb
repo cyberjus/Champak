@@ -75,7 +75,7 @@ class ViewsController < ApplicationController
       when 'popular' then 'prints DESC, businesses.name, short_description'
       when 'savings' then 'value DESC, businesses.name, short_description' 
       when 'newest' then 'coupons.created_at DESC, businesses.name, short_description'
-      when 'distance' then 'businesses.distance, businesses.name, short_description '      
+      when 'distance' then 'distance, businesses.name, short_description '      
       else 'businesses.name, short_description'
     end 
   end
