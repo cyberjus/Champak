@@ -8,6 +8,9 @@ $(function() {
   $('#filter_category').change(filter_category);
   $('#filter_town').change(filter_town);
   $('.list_refine_filter_option_remove').click(remove_filter);
+  $('#select_zip').focusin(clear_select_zip)
+  $('#select_zip').focusout(restore_select_zip)
+  $('#select_zip_find').click(select_zip)
   $('.print_coupon_link').click(function(e) { display_print_coupon($(this).attr('href')); e.preventDefault(); return false; });
   if ($('#featured_coupons').length>0) {
 		$('#featured_selector_prev').click(featured_show_prev);
@@ -49,6 +52,24 @@ function filter_category() {
 
 function remove_filter() {
   window.location = removeParam($(this).attr('data-param'), document.URL);
+}
+
+function clear_select_zip() {
+  if (this.value == "Enter ZIP Code") {
+    this.value = ""; 
+  }
+}
+
+function restore_select_zip() {
+  if (this.value == "") {
+    this.value = "Enter ZIP Code"
+  }
+}
+
+function select_zip() {
+  if ($('#select_zip').val() != "Enter ZIP Code") {
+    window.location =  "/Coupons/d?zip="+$('#select_zip').val();
+  }
 }
 
 function display_print_coupon(loc) { 

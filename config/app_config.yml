@@ -1,0 +1,8 @@
+development:
+  env: "Dev"
+
+test:
+  env: "Test"  
+
+production:
+  env: "Prod"

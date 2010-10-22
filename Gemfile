@@ -9,6 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'will_paginate', '3.0.pre2'
 gem 'paperclip', '2.3.3'
 gem 'aws-s3'
+gem 'geokit-rails3'
 
 # Use unicorn as the web server
 # gem 'unicorn'

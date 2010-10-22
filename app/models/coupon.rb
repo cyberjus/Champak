@@ -5,6 +5,8 @@ class Coupon < ActiveRecord::Base
   belongs_to :business
   belongs_to :category
   
+  acts_as_mappable :through => :business
+  
   validates :business_id, :presence => true
   validates :short_description, :presence => true, :length => { :maximum => 250 } 
   validates :valid_from, :presence => true

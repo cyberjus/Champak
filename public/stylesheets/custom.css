@@ -90,7 +90,7 @@ div.side_hot_actions { float:right}
 #list_refine .list_refine_sort_option { margin-left:10px; font-size:10px; line-height:13px; }
 #list_refine .list_refine_sort_option_active { font-weight:bold; }
 #list_refine .list_refine_filter_option { margin-left:10px; font-size:10px; line-height:16px; }
-#list_refine .list_refine_filter_option select { font-size:10px; }
+#list_refine .list_refine_filter_option select { font-size:10px; width:175px; }
 #list_refine .list_refine_filter_option_remove { cursor:pointer; }
 
 table.admin_table { border-collapse:collapse; width:100%; border-bottom:2px solid #666; }
@@ -129,6 +129,9 @@ div.right_content { float:right; text-align:right; border:1px solid #274274; pad
 div.coupon_social_links { float:right; margin-top:10px; text-align:center; font-size:14px; font-weight:bold; color:#469555; }
 
 img.print_coupon { width:100%; }
+
+div.warning_box { background:#FFFF99; border:1px solid #FFCC33; font-size:11px; padding:4px; }
+div.warning_box img { vertical-align:middle; }
 
 .lg_button { color:#fff; font: bold 15px Verdana,Sans-Serif; background-color:#469555; border:2px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }
 .sm_button { color:#fff; font: bold 11px Verdana,Sans-Serif; background-color:#469555; border:1px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }

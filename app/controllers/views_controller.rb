@@ -21,6 +21,20 @@ class ViewsController < ApplicationController
     render 'coupon_list'
   end
   
+  def by_distance
+    @zipcode = params[:zip]
+    if Rails.env.production?
+      @distance = params[:distance] ? param[:distance] : 10
+      @title = "Coupons with #{@distance} miles of #{@zipcode}"
+      @coupon_items = Coupon.active.within(@distance, @zipcode)
+      render 'coupon_list'
+    else 
+      @title = "Coupons in #{@zipcode}"
+      @coupon_items = Coupon.active.joins(:business).where("businesses.zipcode = ?", @zipcode).order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
+      render 'coupon_list'
+    end
+  end
+  
   def by_hot
     @title = "Hot Coupons"
     params[:sort] ||= 'popular'

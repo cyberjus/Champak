@@ -42,7 +42,6 @@ module ApplicationHelper
   
   def base_url
     "http://#{request.host_with_port}"
-  end
-
+  end 
   
 end

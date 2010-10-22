@@ -17,6 +17,7 @@ class Admin::BusinessesController < Admin::BaseController
       if params[:commit] = "Create and Add Coupon" 
         redirect_to new_admin_coupon_path(:business => @business.id)
       else
+        flash[:success] = "Business created."
         redirect_to admin_businesses_path
       end
     else
@@ -34,6 +35,7 @@ class Admin::BusinessesController < Admin::BaseController
     @business = Business.find(params[:id])
   	if @business.update_attributes(params[:business])
   		flash[:success] = "Business updated."
+  		flash[:notice] = "Geocoder could not match address. This business will not be used in find by zipcode searches." if @business.lat.nil? || @business.lng.nil?
   		redirect_to admin_businesses_path
   	else
   		@title = "Edit Business"
