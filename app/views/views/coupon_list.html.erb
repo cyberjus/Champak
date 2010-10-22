@@ -5,7 +5,10 @@
       <div id="list_refine_sort">
         <div class="list_refine_subtitle">Sort Coupons By</div>
           <%= sort_option('By Business Name', :business) %><br/>  
-          <%= sort_option('By Description', :description) %><br/> 
+          <%= sort_option('By Description', :description) %><br/>
+          <% if params[:action] == 'by_distance'  %>
+            <%= sort_option('Distance', :distance) %> 
+          <% end %>
           <%= sort_option('Expiring Soonest', :expiring) %><br/> 
           <%= sort_option('Most Popular', :popular) %><br/> 
           <%= sort_option('Most Savings', :savings) %><br/> 

@@ -24,9 +24,10 @@ class ViewsController < ApplicationController
   def by_distance
     @zipcode = params[:zip]
     if Rails.env.production?
+      params[:sort] ||= 'distance'
       @distance = params[:distance] ? param[:distance] : 10
       @title = "Coupons within #{@distance} miles of #{@zipcode}"
-      @coupon_items = Coupon.active.joins(:business).within(@distance, :origin => @zipcode).paginate(:page => params[:page], :per_page => 10)
+      @coupon_items = Coupon.active.joins(:business).within(@distance, :origin => @zipcode)..order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
       render 'coupon_list'
     else 
       @title = "Coupons in #{@zipcode}"
@@ -73,7 +74,8 @@ class ViewsController < ApplicationController
       when 'expiring' then 'valid_until, businesses.name, short_description'
       when 'popular' then 'prints DESC, businesses.name, short_description'
       when 'savings' then 'value DESC, businesses.name, short_description' 
-      when 'newest' then 'coupons.created_at DESC, businesses.name, short_description'      
+      when 'newest' then 'coupons.created_at DESC, businesses.name, short_description'
+      when 'distance' then 'businesses.distance, businesses.name, short_description '      
       else 'businesses.name, short_description'
     end 
   end
