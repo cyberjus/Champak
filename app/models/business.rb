@@ -1,6 +1,5 @@
 class Business < ActiveRecord::Base
   attr_accessible :name, :address, :town, :state, :zipcode, :website_url
-  attr_accessor :distance
   
   has_many :coupons, :dependent => :destroy
   
