@@ -23,7 +23,7 @@ class Business < ActiveRecord::Base
   
   def geocode_address
     self.lat, self.lng = ''
-    geo=Geokit::Geocoders::MultiGeocoder.geocode ("#{address}, #{town}, #{state} #{zipcode}")
+    geo=Geokit::Geocoders::MultiGeocoder.geocode("#{address}, #{town}, #{state} #{zipcode}")
     self.lat, self.lng = geo.lat,geo.lng if geo.success && geo.zip == self.zipcode
   end 
     
