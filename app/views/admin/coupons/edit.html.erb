@@ -1,3 +1,9 @@
+<% content_for :side_menu do %>
+  <div id="admin_side_menu">
+    <%= button_to 'Delete Coupon', admin_coupon_path(@coupon), :method => :delete, :confirm => "Are you sure you would like to delete this coupon?", :class => 'lg_button' %>
+  </div>
+<% end %>
+
 <div class="title">Edit Coupon</div>
 
 <%= form_for(@coupon, :url => admin_coupon_path, :html => { :class => 'admin_form', :multipart => true }) do |f| %>

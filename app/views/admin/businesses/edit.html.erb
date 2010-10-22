@@ -1,3 +1,9 @@
+<% content_for :side_menu do %>
+  <div id="admin_side_menu">
+    <%= button_to 'Delete Business', admin_business_path(@business), :method => :delete, :confirm => "This will also delete any coupons associated with this business. Are you sure you would like to delete this business?", :class => 'lg_button' %>
+  </div>
+<% end %>
+
 <div class="title">Edit Business</div>
 
 <%= form_for(@business, :url => admin_business_path, :html => { :class => 'admin_form' } ) do |f| %>

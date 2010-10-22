@@ -30,6 +30,19 @@ module ApplicationHelper
   def total_savings
     @total_savings ||= Savings.first()
   end
+  
+  def coupon_link(coupon)
+    "/#{url_escape(coupon.business.name)}-Coupons/#{url_escape(coupon.short_description)}/#{coupon.id}/"
+  end
+  
+  def side_hot_coupons
+    sql = "SELECT coupons.*, businesses.name  FROM (SELECT coupons.* FROM coupons ORDER BY prints DESC LIMIT 10) as coupons JOIN businesses ON businesses.id = coupons.business_id WHERE coupons.valid_until >= CURRENT_DATE ORDER BY RANDOM() LIMIT 3"
+    Coupon.find_by_sql(sql)
+  end
+  
+  def base_url
+    "http://#{request.host_with_port}"
+  end
 
   
 end

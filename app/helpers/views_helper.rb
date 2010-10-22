@@ -7,7 +7,7 @@ module ViewsHelper
   
   def filter_by_category(coupons)
     unless coupons.nil?
-      categories = coupons.collect{ |c| [c.category.name, c.category.id] }.uniq.sort.insert(0, ['-----------', '']).insert(0, ['  Category  ', ''])
+      categories = coupons.collect{ |c| c.category.nil? ? nil : [c.category.name, c.category.id] }.compact.uniq.sort.insert(0, ['-----------', '']).insert(0, ['  Category  ', ''])
       select_tag "filter_category", options_for_select(categories)
     end
   end

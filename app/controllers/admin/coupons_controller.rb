@@ -44,6 +44,12 @@ class Admin::CouponsController < Admin::BaseController
   	end
   end
   
+  def destroy
+    Coupon.find(params[:id]).destroy
+    flash[:success] = "Coupon Deleted"
+    redirect_to admin_coupons_path  
+  end
+  
   private 
   
   def set_selects 

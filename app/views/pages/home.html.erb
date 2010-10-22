@@ -1,7 +1,6 @@
 <% content_for :left_bar_addl do %>
-  <div class="center"><%= image_tag "twitter_bird.gif", :size => '75x75' %><%= image_tag "follow_on_twitter.png", :alt= => 'Follow Up on Twitter', :size => '150x75' %> </div> 
+  <div class="center"><%= link_to (image_tag "twitter_bird.gif", :size => '75x75'), 'http://twitter.com/champakdotnet' %><%= link_to (image_tag "follow_on_twitter.png", :alt= => 'Follow Up on Twitter', :size => '150x75'), 'http://twitter.com/champakdotnet' %> </div> 
 <% end %>
-
 
 <%= image_tag "main_coupon_guide.png", :size => '644x157', :alt => "Coupon Guide" %>
 
@@ -11,7 +10,7 @@
 <% @featured_coupons.each_with_index do |coupon, i| %>
   <div id="featured_coupon_<%= (i+1) %>" class="featured_coupon">
 		<%= image_tag coupon.image.url %>
-		<div class="featured_description"><%= link_to coupon.short_description, "/#{url_escape(coupon.business.name)}-Coupons/#{url_escape(coupon.short_description)}/#{coupon.id}/" %> <div class="featured_business"><%= coupon.business.name %></div></div>
+		<div class="featured_description"><%= link_to coupon.short_description, coupon_link(coupon) %> <div class="featured_business"><%= coupon.business.name %></div></div>
 	</div>
 <% end %>
   <div id="featured_selector">

@@ -41,4 +41,10 @@ class Admin::BusinessesController < Admin::BaseController
   	end
   end
   
+  def destroy
+    Business.find(params[:id]).destroy
+    flash[:success] = "Business Deleted"
+    redirect_to admin_businesses_path  
+  end
+  
 end
