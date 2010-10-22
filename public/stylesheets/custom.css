@@ -92,6 +92,8 @@ div.side_hot_actions { float:right}
 #list_refine .list_refine_filter_option { margin-left:10px; font-size:10px; line-height:16px; }
 #list_refine .list_refine_filter_option select { font-size:10px; width:175px; }
 #list_refine .list_refine_filter_option_remove { cursor:pointer; }
+#list_refine .list_refine_distance_option { margin-left:10px; font-size:10px; line-height:16px; }
+#list_refine .list_refine_distance_option select { font-size:10px; width:50px; }
 
 table.admin_table { border-collapse:collapse; width:100%; border-bottom:2px solid #666; }
 table.admin_table tr { height:40px; background:#CCC; border-bottom:solid 1px #FFF; cursor:pointer; }

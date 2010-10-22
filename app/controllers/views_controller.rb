@@ -23,16 +23,22 @@ class ViewsController < ApplicationController
   
   def by_distance
     @zipcode = params[:zip]
-    if Rails.env.production?
-      params[:sort] ||= 'distance'
-      @distance = params[:distance] ? param[:distance] : 10
-      @title = "Coupons within #{@distance} miles of #{@zipcode}"
-      @coupon_items = Coupon.active.joins(:business).within(@distance, :origin => @zipcode).order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
-      render 'coupon_list'
+    @distance = params[:distance] ? params[:distance] : 10
+    if /\d{5}(?:-\d{4})?/.match(@zipcode)
+      if Rails.env.production?
+        params[:sort] ||= 'distance'
+        @title = "Coupons within #{@distance} miles of #{@zipcode}"
+        @coupon_items = Coupon.active.joins(:business).within(@distance, :origin => @zipcode).order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
+        render 'coupon_list'
+      else 
+        @title = "Coupons in #{@zipcode}"       
+        @coupon_items = Coupon.active.joins(:business).where("businesses.zipcode = ?", @zipcode).order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
+        render 'coupon_list'
+      end
     else 
-      @title = "Coupons in #{@zipcode}"
-      @coupon_items = Coupon.active.joins(:business).where("businesses.zipcode = ?", @zipcode).order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
-      render 'coupon_list'
+      @title = "Coupons by Distance"
+      @coupon_items = ""
+      render 'invalid_zip'
     end
   end
   

@@ -19,4 +19,8 @@ module ViewsHelper
     end
   end
   
+  def select_distance(selected)
+    select_tag "select_distance", options_for_select(["5","10","15","30","50"], selected) 
+  end
+  
 end

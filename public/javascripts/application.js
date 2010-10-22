@@ -11,6 +11,7 @@ $(function() {
   $('#select_zip').focusin(clear_select_zip)
   $('#select_zip').focusout(restore_select_zip)
   $('#select_zip_find').click(select_zip)
+  $('#select_distance').change(select_distance)
   $('.print_coupon_link').click(function(e) { display_print_coupon($(this).attr('href')); e.preventDefault(); return false; });
   if ($('#featured_coupons').length>0) {
 		$('#featured_selector_prev').click(featured_show_prev);
@@ -39,7 +40,8 @@ function select_town() {
 
 function filter_town() {
   if (this.value != "") {
-    window.location = document.URL+(document.URL.indexOf("?")!=-1?"&":"?")+"filter_town="+(this.value).replace(" ", "-");
+    var loc = removeParam('page', document.URL);
+    window.location = loc+(loc.indexOf("?")!=-1?"&":"?")+"filter_town="+(this.value).replace(" ", "-");
   }
 }
 
@@ -69,6 +71,13 @@ function restore_select_zip() {
 function select_zip() {
   if ($('#select_zip').val() != "Enter ZIP Code") {
     window.location =  "/Coupons/d?zip="+$('#select_zip').val();
+  }
+}
+
+function select_distance() {
+  if (this.value != "") {
+    var loc = removeParam('distance', document.URL);
+    window.location = loc+(loc.indexOf("?")!=-1?"&":"?")+"distance="+(this.value);
   }
 }
 
@@ -115,6 +124,6 @@ function featured_hide_current() {
 }
 
 function removeParam(param,url) {
- var regex = new RegExp(param + "=[^&]+&?"); 
+ var regex = new RegExp("&?" + param + "=[^&]+"); 
  return url.replace(regex,'');
 }

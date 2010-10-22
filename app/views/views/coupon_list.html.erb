@@ -7,7 +7,7 @@
           <%= sort_option('By Business Name', :business) %><br/>  
           <%= sort_option('By Description', :description) %><br/>
           <% if params[:action] == 'by_distance'  %>
-            <%= sort_option('Distance', :distance) %> 
+            <%= sort_option('Distance', :distance) %><br/>
           <% end %>
           <%= sort_option('Expiring Soonest', :expiring) %><br/> 
           <%= sort_option('Most Popular', :popular) %><br/> 
@@ -28,8 +28,15 @@
             <div class='list_refine_filter_option'><%= filter_by_town(@coupon_items) %></div> 
           <% end %>          
       </div>
-    <div class='clear10'></div>
-    <%= link_to "Reset Refinements", request.path %>
+      <% if params[:action] == "by_distance" %>
+        <div class='clear10'></div>
+        <div id="list_refine_distance">
+          <div class="list_refine_subtitle">Distance From <%= @zipcode %></div>
+          <div class='list_refine_distance_option'>Miles: <%= select_distance(@distance) %></div>
+        </div>
+        <% end %>
+      <div class='clear10'></div>
+    <%= link_to "Reset Refinements", params[:zip] ? "#{request.path}?zip=#{params[:zip]}" : request.path %>
     </div>
   </div>
 <% end %>
