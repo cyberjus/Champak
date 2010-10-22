@@ -70,8 +70,7 @@ div.coupon_paging { text-align:right; }
 div.side_hot_coupon { border-bottom:solid 1px #89A5D8; padding:5px; }  
 div.side_hot_coupon .business_name { font-weight:bold; font-size:12px; }
 div.side_hot_coupon .description { font-weight:normal; font-size:10px; }
-div.side_hot_actions { margin:3px 0px; }
-div.side_hot_actions a { margin-right:5px; float:left; }
+div.side_hot_actions { float:right}
 
 #error_explanation p { font-weight:bold; margin-bottom:3px; }
 #error_explanation ul { list-style:none; margin:0px 0px 0px 10px; padding:0px; }
