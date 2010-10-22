@@ -8,7 +8,7 @@
   </div> 
 	<div class="business_name"><%= coupon_item.business.name %>
 	  <% if params[:action] == 'by_distance' && Rails.env.production? %>
-	    <span class='miles_away'> - <%= {pluralize(number_to_human(coupon_item.distance), "mile")} %> away</span> 
+	    <span class='miles_away'> - <%= pluralize(number_to_human(coupon_item.distance), "mile") %> away</span> 
 	  <% end %>
   </div>
   <div class="business_address"><%= coupon_item.business.town %></div>
