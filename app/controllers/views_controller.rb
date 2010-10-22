@@ -26,7 +26,7 @@ class ViewsController < ApplicationController
     if Rails.env.production?
       @distance = params[:distance] ? param[:distance] : 10
       @title = "Coupons with #{@distance} miles of #{@zipcode}"
-      @coupon_items = Coupon.active.joins(:business).within(@distance, @zipcode)
+      @coupon_items = Coupon.active.joins(:business).within(@distance, :origin => @zipcode).paginate(:page => params[:page], :per_page => 10)
       render 'coupon_list'
     else 
       @title = "Coupons in #{@zipcode}"
