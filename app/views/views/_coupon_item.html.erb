@@ -6,7 +6,7 @@
   	  <%= link_to image_tag("print.png", :size => "58x37", :alt => "Print And Use This Coupon"), "/print/#{coupon_item.id}", :class => "print_coupon_link" %>
 	  </div> 
   </div> 
-	<div class="business_name"><%= coupon_item.business.name %><%= "<span class='miles_away'> - #{pluralize(number_to_human(coupon_item.distance), "mile")} away</span>" if params[:action] == 'by_distance' && Rails.env.production? %></div>
+	<div class="business_name"><%= coupon_item.business.name %><%= "<span class='miles_away'> - #{pluralize(number_to_human(coupon_item.distance), 'mile')} away</span>" if params[:action] == 'by_distance' && Rails.env.production? %></div>
   <div class="business_address"><%= coupon_item.business.town %></div>
   <div class="coupon_short_description"><%= link_to coupon_item.short_description, coupon_link(coupon_item) %></div>
   <% if coupon_item.online_only %>
