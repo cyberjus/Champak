@@ -1,0 +1,13 @@
+<div id="side_hot">
+  <%= image_tag 'hot_coupons_side.png', :alt => 'Hot Coupons', :size => '255x27' %>
+  <% side_hot_coupons.each do |coupon| %>
+    <div class='side_hot_coupon'>
+      <div class='business_name'><%= link_to coupon.business.name, coupon_link(coupon) %></div>
+      <div class='description'><%= link_to coupon.short_description, coupon_link(coupon) %></div>
+      <div class='side_hot_actions'>
+        <a name="fb_share" type="button_count" share_url="<%= base_url+coupon_link(coupon) %>" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= base_url+coupon_link(coupon) %>" data-text="Check Out This Coupon for <%= coupon.business.name %>" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      </div>   
+    </div>
+  <% end %>
+</div>
