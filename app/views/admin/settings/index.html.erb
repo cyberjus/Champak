@@ -1,0 +1,45 @@
+<% content_for :side_menu do %>
+  <div id="admin_side_menu">
+    <%= button_to 'Add New Banner Ad', new_admin_ad_path, :method => :get, :class => 'lg_button' %>
+  </div>
+<% end %>
+
+<div class="title"><%= @title %></div>
+
+<div class="subtitle">Site Ads</div>
+<%= form_tag admin_settings_set_ads_path, :class=>'admin_form' %>
+<div class='two_column'>
+  <div class="field">
+    <label>Current Left Skyscraper</label>
+    <% if @skyscraper_left && @skyscraper_left.image.exists? %>  
+      <%= image_tag @skyscraper_left.image.url, :size => '160x600' %>
+    <% else %>
+      <div class="not_found">No Image Set</div>
+    <% end %>
+  </div>
+  <div class="field">
+    <label>Set Left Skyscraper</label>
+    <%= select_tag(:skyscraper_left, banner_select('wide_skyscraper', (@skyscraper_left ? @skyscraper_left.id : '')), :class => 'short_field') %>
+  </div>
+</div>
+
+<div class='two_column'>
+  <div class="field">
+    <label>Current Right Skyscraper</label>
+    <% if @skyscraper_right && @skyscraper_right.image.exists? %>  
+      <%= image_tag @skyscraper_right.image.url, :size => '160x600' %>
+    <% else %>
+      <div class="not_found">No Image Set</div>
+    <% end %>
+  </div>
+  <div class="field">
+    <label>Set Right Skyscraper</label>
+    <%= select_tag(:skyscraper_right, banner_select('wide_skyscraper',(@skyscraper_right ? @skyscraper_right.id : '')), :class => 'short_field') %>
+  </div>
+</div>
+<div class='clear'></div>
+<div class="actions">
+  <%= submit_tag "Set Ads", :disable_with => 'Saving...', :class => 'lg_button' %>
+</div>
+
+</form>

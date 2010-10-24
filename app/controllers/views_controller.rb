@@ -45,7 +45,7 @@ class ViewsController < ApplicationController
   def by_hot
     @title = "Hot Coupons"
     params[:sort] ||= 'popular'
-    sql = "SELECT coupons.*, businesses.name  FROM (SELECT coupons.* FROM coupons ORDER BY prints DESC LIMIT 10) as coupons JOIN businesses ON businesses.id = coupons.business_id WHERE coupons.valid_until >= CURRENT_DATE "
+    sql = "SELECT coupons.*, businesses.name  FROM (SELECT coupons.* FROM coupons ORDER BY prints DESC LIMIT 10) as coupons JOIN businesses ON businesses.id = coupons.business_id WHERE coupons.valid_until >= CURRENT_DATE AND coupons.valid_from <= CURRENT_DATE "
     sql += " AND  businesses.town = '#{params[:filter_town].tr('-', ' ')}' " if filter_town 
     sql += " AND  category_id = '#{params[:filter_category]}' " if filter_category  
     sql += "ORDER BY #{sort_by}"
@@ -59,6 +59,17 @@ class ViewsController < ApplicationController
     render 'coupon_list'
   end
   
+  def search 
+    @title = "Search Coupons"
+    @search = params[:s]
+    if @search != ""
+      @coupon_items = Coupon.active.joins(:business).where('short_description LIKE ? OR businesses.name LIKE ?', "%#{@search}%", "%#{@search}%").order(sort_by).paginate(:page => params[:page], :per_page => 10) 
+    else 
+      @coupon_items = ""
+    end      
+    render 'search_list'  
+  end
+  
   def coupon
     @coupon = Coupon.find(params[:id])
     @title = "#{@coupon.business.name} Coupon"
@@ -69,6 +80,15 @@ class ViewsController < ApplicationController
     @coupon.print
     @title = "Coupon Found at www.Champak.net"
     render :layout => 'print'
+  end
+  
+  def tweet_link 
+    @coupon = Coupon.find_by_id(params[:id])
+    if @coupon 
+      redirect_to "/#{url_escape(@coupon.business.name)}-Coupons/#{url_escape(@coupon.short_description)}/#{@coupon.id}/"
+    else
+      redirect_to root_path
+    end
   end
   
   private 
@@ -98,6 +118,10 @@ class ViewsController < ApplicationController
       @filter_category = Category.find_by_id(params[:filter_category])
       return ["category_id = ?", params[:filter_category]]
     end 
+  end
+  
+  def url_escape(url)
+    URI.escape(url.sub('%',' percent').sub('/', '%25').tr(' ', '-'))
   end
   
 end

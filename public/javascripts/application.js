@@ -12,6 +12,8 @@ $(function() {
   $('#select_zip').focusout(restore_select_zip)
   $('#select_zip_find').click(select_zip)
   $('#select_distance').change(select_distance)
+  $('#search_button').click(search_site)
+  $('#search').keypress(function(e) { if (e.keyCode == '13') { $('#search_button').click(); }});
   $('.print_coupon_link').click(function(e) { display_print_coupon($(this).attr('href')); e.preventDefault(); return false; });
   if ($('#featured_coupons').length>0) {
 		$('#featured_selector_prev').click(featured_show_prev);
@@ -70,7 +72,8 @@ function restore_select_zip() {
 
 function select_zip() {
   if ($('#select_zip').val() != "Enter ZIP Code") {
-    window.location =  "/Coupons/d?zip="+$('#select_zip').val();
+    var val = encodeURIComponent($('#select_zip').val());
+    window.location =  "/Coupons-Near-"+val+"/d?zip="+val;
   }
 }
 
@@ -78,6 +81,12 @@ function select_distance() {
   if (this.value != "") {
     var loc = removeParam('distance', document.URL);
     window.location = loc+(loc.indexOf("?")!=-1?"&":"?")+"distance="+(this.value);
+  }
+}
+
+function search_site() {
+  if ($('#search').val() != "") {
+    window.location =  "/Search-Coupons?s="+encodeURIComponent($('#search').val());
   }
 }
 

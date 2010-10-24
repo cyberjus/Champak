@@ -12,12 +12,21 @@ class Admin::CouponsController < Admin::BaseController
     if @business = Business.find_by_id(params[:business])
       @coupon.business = @business
     end
-    @title = "Add Coupons" 
+    @title = "Add Coupon" 
   end
   
   def create 
     @coupon = Coupon.new(params[:coupon])
     if @coupon.save
+      if params[:tweet_this] 
+        client = Twitter::Base.new(:consumer_key => CONFIG['twitter']['consumer_key'], :consumer_secret => CONFIG['twitter']['consumer_secret'], :access_key => CONFIG['twitter']['access_key'], :access_secret => CONFIG['twitter']['access_secret'] )
+        begin
+          client.update(tweet_worthy("New Coupon for #{@coupon.business.name} - #{@coupon.short_description}")+" http://#{request.host_with_port}/c/#{@coupon.id}")
+        rescue
+          flash[:error] = "Could Not Make Tweet."         
+        end
+      end
+      flash[:success] = "Coupon created."
       redirect_to admin_coupons_path
     else
       set_selects
@@ -29,7 +38,7 @@ class Admin::CouponsController < Admin::BaseController
   def edit
     @coupon = Coupon.find(params[:id])
     set_selects
-    @title = "Edit Coupon"
+    @title = "Edit Coupon" 
   end
   
   def update
@@ -55,6 +64,13 @@ class Admin::CouponsController < Admin::BaseController
   def set_selects 
     @businesses_select = Business.order('name').collect { |l| [ l.name, l.id ] }
     @categories_select = Category.order('name').collect { |l| [ l.name, l.id ] }
+  end
+  
+  def tweet_worthy(str)
+    if str.size > 100
+      str = str[0..99]
+    end
+    str
   end
   
 end

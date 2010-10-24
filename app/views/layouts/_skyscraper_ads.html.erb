@@ -1,0 +1,9 @@
+<% skyscraper_left = Ad.find_by_id(Setting::getSetting('skyscraper_left'))
+   skyscraper_right = Ad.find_by_id(Setting::getSetting('skyscraper_right')) %>
+
+<% if skyscraper_left && !skyscraper_left.image.url.empty? %>
+  <div id="skyscraper_left" class="skyscraper"><%= image_tag skyscraper_left.image.url, :size => '160x600' %></div>
+<% end %>
+<% if skyscraper_right && !skyscraper_right.image.url.empty? %>
+  <div id="skyscraper_right" class="skyscraper"><%= image_tag skyscraper_right.image.url, :size => '160x600' %></div>
+<% end %>

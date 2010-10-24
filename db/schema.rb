@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101022174919) do
+ActiveRecord::Schema.define(:version => 20101023190741) do
 
   create_table "admin_users", :force => true do |t|
     t.string    "login"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(:version => 20101022174919) do
   end
 
   add_index "admin_users", ["login"], :name => "index_admin_users_on_login", :unique => true
+
+  create_table "ads", :force => true do |t|
+    t.string   "name"
+    t.string   "banner_type"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "businesses", :force => true do |t|
     t.string    "name"
@@ -72,5 +83,14 @@ ActiveRecord::Schema.define(:version => 20101022174919) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
   end
+
+  create_table "settings", :force => true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["key"], :name => "index_settings_on_key"
 
 end

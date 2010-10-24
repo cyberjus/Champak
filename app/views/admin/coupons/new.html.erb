@@ -4,5 +4,7 @@
   <%= render :partial => 'form', :locals => { :f => f } %>
   <div class="actions">
     <%= f.submit "Create", :disable_with => 'Saving...', :class => 'lg_button' %>
+    <%= check_box_tag "tweet_this", 1, true %>
+    <label>Tweet</label>
   </div>
 <% end %>

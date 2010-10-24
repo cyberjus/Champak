@@ -1,0 +1,14 @@
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :banner_type %>
+  <%= select(:ad, :banner_type, Ad::TYPES) %>
+</div>
+<div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+</div>
+
