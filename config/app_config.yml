@@ -5,9 +5,6 @@ development:
     consumer_secret: 'Ut4V7XIHumlMulIgBvvrY4KQUHAezbaK5akB2bMKM9o'
     access_key: '206880109-A4CjhVr7Gj1FuXAghyluyLP8cb5we6bTcfFYhNIL'
     access_secret: 'IS10qU2oH9E7nSv6NDQgmOmFsntlYIwTPDmTOEBTY'
-  bitly:
-    user: 'champak'
-    key: 'R_95ea324e4078412e17e549d590f2debb'
     
 test:
   env: "Test"
@@ -16,17 +13,11 @@ test:
     consumer_secret: ''
     access_key: ''
     access_secret: ''  
-  bitly:
-    user: 'champak'
-    key: 'R_95ea324e4078412e17e549d590f2debb'
 
 production:
   env: "Prod"
   twitter:
-    consumer_key: ''
-    consumer_secret: ''
-    access_key: ''
-    access_secret: ''
-  bitly:
-    user: 'champak'
-    key: 'R_95ea324e4078412e17e549d590f2debb'
+    consumer_key: 'lu80N8gepFH2Q1KdhjwD2w'
+    consumer_secret: 'Ut4V7XIHumlMulIgBvvrY4KQUHAezbaK5akB2bMKM9o'
+    access_key: '206880109-A4CjhVr7Gj1FuXAghyluyLP8cb5we6bTcfFYhNIL'
+    access_secret: 'IS10qU2oH9E7nSv6NDQgmOmFsntlYIwTPDmTOEBTY'
