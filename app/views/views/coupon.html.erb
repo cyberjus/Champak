@@ -11,9 +11,7 @@
 <div class="coupon_long_description"><%= @coupon.long_description %><br/>Posted: <%= @coupon.created_at.strftime('%D') %></div>
 
 <div class="clear20"></div>
-<%= image_tag @coupon.image.url %>
-
-
+<%= image_tag @coupon.image.url(:page) %>
 
 
 <div class="coupon_social_links">

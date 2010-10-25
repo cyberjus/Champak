@@ -22,5 +22,8 @@ Champax::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  # Image Magick
+  Paperclip.options[:command_path] = "F:/Programs/ImageMagick-6.6.5-Q16"
+  
 end
-

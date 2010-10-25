@@ -2,4 +2,4 @@
 <h2><%= @coupon.business.name %></h2>
 <h3><%= @coupon.business.address %> &nbsp;&nbsp; <%= @coupon.business.town %></h3>
 <%= image_tag "coupon_cut_here.png", :class => 'print_coupon' %>
-<%= image_tag @coupon.image.url, :class => 'print_coupon' %>
+<%= image_tag @coupon.image.url(:print), :class => 'print_coupon' %>
