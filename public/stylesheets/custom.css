@@ -72,6 +72,13 @@ div.coupon_valid_dates span { font-size:10px; position:absolute; color:#666; top
 div.coupon_item div.online_only { position:absolute; right:150px; top:5px; }
 div.coupon_paging { text-align:right; }
 
+div.coupon_item_compact { position:relative; border-bottom:solid 1px #89A5D8; padding:5px;  }
+div.coupon_item_compact div.online_only { position:absolute; right:150px; top:5px; }
+div.business_name { font-size:14px; font-weight:bold; }
+div.coupon_item_compact div.coupon_short_description{ font-size:20px; margin-top:5px; }
+div.coupon_item_compact div.coupon_valid_dates { position:relative; font-size:18px; margin:3px 0px; } 
+div.coupon_item_compact div.rating_summary { font-size:10px; padding-top:15px; }
+
 #side_menu { background:url(../images/side_menu_middle.png) repeat-y; }
 #side_menu_content { height:141px; background:url(../images/side_menu_top.png) top no-repeat; padding:15px 15px; } 
 #side_menu_bottom { height:15px; background:url(../images/side_menu_bottom.png); } 
@@ -169,6 +176,7 @@ div.sep_bar { height:2px; background-color:#981F27; clear:both; }
 
 .lg_button { color:#fff; font: bold 15px Verdana,Sans-Serif; background-color:#469555; border:2px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }
 .sm_button { color:#fff; font: bold 11px Verdana,Sans-Serif; background-color:#469555; border:1px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }
+.smaller { font-size:smaller; }
 .bold { font-weight:bold; }
 .center { text-align:center; } 
 .clickable { cursor:pointer; }

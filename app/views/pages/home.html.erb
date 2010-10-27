@@ -23,3 +23,10 @@
 	  <%= image_tag "featured_right.png", :id=> 'featured_selector_next', :size=> '14x14' %>
 	</div>
 </div>
+
+<div class="clear20"></div>
+
+<%= image_tag "top_rated_coupons.png", :size => '640x27', :alt => "Top Rated Coupons", :class => 'sub_header_bar'  %>
+<div id="top_rated">
+  <%= render :partial => 'shared/coupon_item', :collection => @top_rated_coupons, :locals => { :show_ratings => true, :compact => true } %>
+</div>

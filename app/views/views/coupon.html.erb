@@ -37,7 +37,7 @@
     <div class="clear"></div>
   </div>
   <div class="coupon_rating_stats">
-    Rated <%= '%.1f' % @coupon.rating %> based on <%= @coupon.total_ratings %> ratings.
+    Rated <%= '%.1f' % @coupon.rating %> based on <%= pluralize @coupon.total_ratings, 'rating' %>
   </div>
 </div>
 

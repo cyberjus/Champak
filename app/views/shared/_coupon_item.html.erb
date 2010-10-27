@@ -1,0 +1,25 @@
+<div class="coupon_item<%= "_compact" if (defined?(compact) && :compact) %>">
+	<div class="right_content">
+  	<div class="coupon_valid_dates"><span>Expires</span> <%= coupon_item.valid_until.strftime('%D') %></div>
+	  <div class="action_buttons">
+  	  <%= link_to image_tag("view.png", :size => "58x37", :alt => "View"), coupon_link(coupon_item) %>
+  	  <%= link_to image_tag("print.png", :size => "58x37", :alt => "Print And Use This Coupon"), "/print/#{coupon_item.id}", :class => "print_coupon_link" %>
+	  </div> 
+  </div> 
+	<div class="business_name"><%= coupon_item.business.name %></div>
+  <div class="business_address"><%= coupon_item.business.town %></div>
+  <div class="coupon_short_description"><%= link_to coupon_item.short_description, coupon_link(coupon_item) %></div>
+  <% if defined?(show_ratings) && :show_ratings %>
+  <div class="rating">
+      <% (0.5..5).step(0.5) do |n| %>
+        <% @rating_star = (coupon_item.rating*2+0.5).floor/2.0  %>  
+        <input name="star_rating_<%= coupon_item.id %>" type="radio" class="star {split:2}" value="<%= n %>" <%= @rating_star == n ? "checked" : "" %> disabled="disabled" />
+      <% end %>
+    <div class="rating_summary">Rated <%= '%.1f' % coupon_item.rating %> based on <%= pluralize coupon_item.total_ratings, 'rating' %></div>
+    <div class="clear"></div>
+  </div>
+  <% end %>
+  <% if coupon_item.online_only %>
+    <div class="online_only"><%= image_tag "online_only.png", :size => '50x50', :alt => "Online Only" %></div>
+  <% end %>
+</div>
