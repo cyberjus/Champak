@@ -37,8 +37,32 @@
     <div class="clear"></div>
   </div>
   <div class="coupon_rating_stats">
-    Rated <%= '%.1f' % @coupon.rating %> based on <%= @coupon.total_ratings %> ratings. <%= @rating_star %>
+    Rated <%= '%.1f' % @coupon.rating %> based on <%= @coupon.total_ratings %> ratings.
   </div>
 </div>
+
+<div class="sep_bar"></div>
+
+<div class="suggestions">
+  <% if @suggest_town || @suggest_cat %>
+    <div class="suggest_title">You may also be interested in...</div>
+  <% end %>
+  <% if @suggest_town %>
+    <div class="two_column suggest_box">
+      Also in <span class="bold"><%= @coupon.business.town %></span>
+      <div class="business_name"><%= link_to @suggest_town.business.name, coupon_link(@suggest_town) %></div>
+      <div class="description"><%= link_to @suggest_town.short_description, coupon_link(@suggest_town) %></div>
+      <div class="all"><%= link_to "See All Coupons in #{@coupon.business.town}", "/#{@coupon.business.town}-Coupons/t"  %></div>
+    </div>
+  <% end %>
+  <% if @suggest_cat %>
+    <div class="two_column suggest_box"> 
+      Also in <span class="bold"><%= @coupon.category.name %></span>
+      <div class="business_name"><%= link_to @suggest_cat.business.name, coupon_link(@suggest_cat) %></div>
+      <div class="description"><%= link_to @suggest_cat.short_description, coupon_link(@suggest_cat) %></div>
+      <div class="all"><%= link_to "See All Coupons in #{@coupon.category.name}", "/#{@coupon.category.name}-Coupons/c"  %></div>
+    </div>  
+  <% end %>
+</div>  
 
 </div>

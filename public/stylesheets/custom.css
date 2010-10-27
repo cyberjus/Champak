@@ -145,12 +145,19 @@ div.title { font-size:26px; border-bottom:2px solid #274274; margin-bottom:5px;}
 div.subtitle { font-size:16px; font-weight:bold; color:#981F27; margin-top:10px; margin-bottom:5px; }
 div.right_content { float:right; text-align:right; border:1px solid #274274; padding:5px; background:#FFFF9F; }
 
-div.coupon_social_links { float:right; margin-top:10px; text-align:center; font-size:14px; font-weight:bold; color:#469555; margin-right:30px; }
+div.coupon_social_links { float:right; margin:10px 30px; text-align:center; font-size:14px; font-weight:bold; color:#469555; }
 
-div.coupon_rating { float:left; margin-top:10px; text-align:center; font-size:14px; font-weight:bold; color:#469555; margin-left:30px; }
+div.coupon_rating { float:left; margin:10px 30px; text-align:center; font-size:14px; font-weight:bold; color:#469555; }
 div.coupon_rating_stars{ position:relative; width:150px; margin:0 auto; }
 img.coupon_rating_star_overlay { position:absolute; z-index:100; top:0px; left:0px; }
 div.coupon_rating_stats { font-size:10px; color:#000; font-weight:normal; }
+
+div.suggestions { margin:10px; }
+div.suggest_title { font-size:14px; font-weight:bold; color:#469555; margin-bottom:10px; }
+div.suggest_box {  }
+div.suggest_box .business_name {  font-weight:bold; font-size:14px; margin-top:5px; }
+div.suggest_box .description { font-size:12px; }
+div.suggest_box .all { margin-top:5px; font-size:10px; }
 
 img.print_coupon { width:100%; }
 
@@ -158,6 +165,7 @@ div.warning_box { background:#FFFF99; border:1px solid #FFCC33; font-size:11px; 
 div.warning_box img { vertical-align:middle; }
 
 div.two_column { width:50%; float:left; }
+div.sep_bar { height:2px; background-color:#981F27; clear:both; }
 
 .lg_button { color:#fff; font: bold 15px Verdana,Sans-Serif; background-color:#469555; border:2px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }
 .sm_button { color:#fff; font: bold 11px Verdana,Sans-Serif; background-color:#469555; border:1px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }

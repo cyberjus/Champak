@@ -73,6 +73,8 @@ class ViewsController < ApplicationController
   def coupon
     @coupon = Coupon.find(params[:id])
     @title = "#{@coupon.business.name} Coupon"
+    @suggest_town = Coupon.active.where('coupons.id <> ?', @coupon.id).joins(:business).where('businesses.town = ?', @coupon.business.town).order("RANDOM()").first()
+    @suggest_cat = Coupon.active.where('coupons.id <> ?', @coupon.id).includes(:business).joins(:category).where('categories.name = ?', @coupon.category.name).order("RANDOM()").first()
   end
   
   def print_coupon
