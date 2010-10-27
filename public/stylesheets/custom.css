@@ -14,7 +14,7 @@ a:hover { color:#BF5B25; text-decoration:underline; }
 #header { height:155px; position:relative; background:url(../images/blue_header_bg.png) bottom left no-repeat; }
 #header_logo { position:absolute; top:20px; left:20px; } 
 #header_title { position:absolute; top:25px; left:240px; }
-#header_links { position:absolute; top:40px; left:500px; } 
+#header_links { position:absolute; top:55px; left:500px; } 
 #header_links ul { list-style:none; margin:0px; padding:0px; } 
 #header_links ul li { font-size:10px; height:14px; line-height:14px; background:url(../images/header_menu_point.png) left no-repeat; padding-left:10px; }
 #header_search { position:absolute; top:40px; left:600px; border-left:solid 1px #999; padding:12px 0px 0px 15px; font-size:10px; } 
@@ -44,9 +44,19 @@ a:hover { color:#BF5B25; text-decoration:underline; }
 #admin_body { margin-top:-3px; background:url(../images/admin_side_menu_bg.png) right repeat-y; }
 #admin_right_bar { width:258px; float:right; } 
 
+#footer { width:920px; position:relative; margin:0px auto; text-align:center; border-top:1px solid #999; color:#999; font-size:10px;}
+
 div.skyscraper { position:absolute; width:160px; height:600px; overflow:hidden; border:1px solid #999; }
-#skyscraper_left { top:167px; left:-170px; }
+div.skyscraper_clear { position:relative; width:1px; height:620px; }
+#skyscraper_left { top:167px; left:-170px; bottom:0px; }
 #skyscraper_right { top:167px; left:930px; }
+
+#error_header { position:relative; height:250px; background-color:#274274; }
+#error_logo { position:absolute; top:45px; left:125px; }
+#error_title { position:absolute; top:75px; left:350px; }
+#error_contents { background-color:#FFF; font-size:14px; padding:20px 50px; }
+#error_bottom { height:100px; background-color:#274274; }
+#error_footer { text-align:center; border-top:1px solid #999; color:#999; font-size:10px; }
 
 img.sub_header_bar { margin:10px 0px 5px 0px; }
 
@@ -105,6 +115,7 @@ table.admin_table tr { height:40px; background:#CCC; border-bottom:solid 1px #FF
 table.admin_table th { background:url(../images/table_header_bg.png) repeat-x; padding:5px; color:#CCC; text-align:center; border-left:solid thin #274274; border-right:solid thin #274274; cursor:default; }
 table.admin_table td { padding:5px; color:#333; border-left:solid thin #AAA; border-right:solid thin #AAA; }
 table.admin_table tr:hover { background-color:#EEE; }
+div.admin_filter_table { float:right; margin-top:16px; font-size:14px; }
 
 div.admin_paging { text-align:center; }
 
@@ -145,5 +156,6 @@ div.two_column { width:50%; float:left; }
 
 .lg_button { color:#fff; font: bold 15px Verdana,Sans-Serif; background-color:#469555; border:2px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }
 .sm_button { color:#fff; font: bold 11px Verdana,Sans-Serif; background-color:#469555; border:1px solid #333; background:url(../images/button_bg.png) repeat-x; padding:5px; }
+.bold { font-weight:bold; }
 .center { text-align:center; } 
 .clickable { cursor:pointer; }

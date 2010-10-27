@@ -1,8 +1,16 @@
 class Admin::CouponsController < Admin::BaseController
   before_filter :authenticate
   
-  def index 
-    @coupons = Coupon.includes(:business).order('businesses.name, coupons.created_at').paginate(:page => params[:page])
+  def index
+    @filter = params[:filter] 
+    @filter ||= 'active'
+    if @filter == 'active' 
+      @coupons = Coupon.active.includes(:business).order('businesses.name, coupons.created_at').paginate(:page => params[:page])
+    elsif @filter == 'expired'
+      @coupons = Coupon.expired.includes(:business).order('businesses.name, coupons.created_at').paginate(:page => params[:page])
+    else 
+      @coupons = Coupon.includes(:business).order('businesses.name, coupons.created_at').paginate(:page => params[:page])
+    end
     @title = "Coupons"
   end
   

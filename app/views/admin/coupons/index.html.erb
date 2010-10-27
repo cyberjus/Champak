@@ -5,7 +5,7 @@
 <% end %>
 
 
-
+<div class="admin_filter_table">View: <%= link_to 'Active', params.merge(:filter => 'active'), :class => ('bold' if @filter == 'active' )  %> | <%= link_to 'Expired', params.merge(:filter => 'expired'), :class => ('bold' if @filter == 'expired' ) %> | <%= link_to 'All', params.merge(:filter => 'all'), :class => ('bold' if @filter == 'all' ) %> </div>
 <div class="title"><%= @title %></div>
 <table class="admin_table">
   <tr>

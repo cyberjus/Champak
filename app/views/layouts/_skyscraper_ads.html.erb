@@ -7,3 +7,6 @@
 <% if skyscraper_right && !skyscraper_right.image.url.empty? %>
   <div id="skyscraper_right" class="skyscraper"><%= image_tag skyscraper_right.image.url, :size => '160x600' %></div>
 <% end %>
+<% if skyscraper_left || skyscraper_right %>
+  <div class="skyscraper_clear"></div>
+<% end %>

@@ -14,6 +14,7 @@ class Coupon < ActiveRecord::Base
   validates :value, :numericality => true
   
   scope :active, where('valid_until >= ? AND valid_from <= ?', Date.today, Date.today)
+  scope :expired, where('valid_until < ?', Date.today)
   
   def print 
     self.prints.nil? ? self.prints = 1 : self.prints += 1 
