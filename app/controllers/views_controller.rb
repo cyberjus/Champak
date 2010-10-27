@@ -91,6 +91,17 @@ class ViewsController < ApplicationController
     end
   end
   
+  ## AJAX Actions
+  
+  def rate_coupon 
+    coupon = Coupon.find_by_id(params[:id])
+    rating = Float(params[:star_rating])
+    if coupon && rating > 0
+      coupon.rate(rating)
+    end
+    render :nothing => true 
+  end
+  
   private 
   
   def sort_by 

@@ -1,6 +1,6 @@
 class Coupon < ActiveRecord::Base
   attr_accessible :business_id, :category_id, :short_description, :long_description, :valid_from, :valid_until, :image, :categories_attributes, :value, :featured, :online_only
-  has_attached_file :image, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => "coupon/:id/:attachment/:style.:extension", :styles => { :page => '625x', :print => '1200x' }
+  has_attached_file :image, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => "coupon/:id/:attachment/:style.:extension", :styles => { :page => '640x', :print => '1200x' }
   
   belongs_to :business
   belongs_to :category
@@ -19,7 +19,13 @@ class Coupon < ActiveRecord::Base
   def print 
     self.prints.nil? ? self.prints = 1 : self.prints += 1 
     self.save
-    Savings.first().add_to(self.value)        
+    Savings.first().add_to(value)        
   end  
+  
+  def rate(val)
+    self.rating.nil? ? self.rating = val : self.rating = ((self.total_ratings*self.rating)+val)/(self.total_ratings+1)
+    self.total_ratings.nil? ? self.total_ratings = 1 : self.total_ratings += 1
+    self.save
+  end
   
 end

@@ -13,7 +13,6 @@
 <div class="clear20"></div>
 <%= image_tag @coupon.image.url(:page) %>
 
-
 <div class="coupon_social_links">
   Share This Coupon
   <div class="addthis_default_style addthis_toolbox addthis_32x32_style">
@@ -23,6 +22,22 @@
     <a class="addthis_button_digg"></a>
     <a class="addthis_button_blogger"></a>
     <a class="addthis_button_compact"></a>
+  </div>
+</div>
+
+<div class="coupon_rating">
+  Rate this Coupon
+  <div class="coupon_rating_stars">
+    <%= form_tag(rate_coupon_path(@coupon.id), :remote => true) %>
+      <% (0.5..5).step(0.5) do |n| %>
+        <% @rating_star = (@coupon.rating*2+0.5).floor/2.0  %>  
+        <input name="star_rating" type="radio" class="coupon_rating_star {split:2}" value="<%= n %>" <%= @rating_star == n ? "checked" : "" %> />
+      <% end %>
+    </form>
+    <div class="clear"></div>
+  </div>
+  <div class="coupon_rating_stats">
+    Rated <%= '%.1f' % @coupon.rating %> based on <%= @coupon.total_ratings %> ratings. <%= @rating_star %>
   </div>
 </div>
 

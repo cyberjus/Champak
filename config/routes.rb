@@ -20,11 +20,13 @@ Champax::Application.routes.draw do
   match "/Hot-Coupons" => 'views#by_hot', :as => :coupons_by_hot 
   match "/Online-Only-Coupons" => 'views#by_online_only', :as => :coupons_by_online_only
   match "/Search-Coupons" => 'views#search'
+  match "/print/:id" => 'views#print_coupon'
+  match "/ajax/rate_coupon/:id", :to => "views#rate_coupon", :as => :rate_coupon
   match "/:name/c" => 'views#by_category'
   match "/:name/t" => 'views#by_town'
   match "/:name/d" => 'views#by_distance'
   match "/:business_name/:short_description/:id" => 'views#coupon', :constraints => { :short_description => /.*/ }
-  match "/print/:id" => 'views#print_coupon'
+  
   
   root :to => 'pages#home'
 
