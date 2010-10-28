@@ -63,7 +63,7 @@ class ViewsController < ApplicationController
     @title = "Search Coupons"
     @search = params[:s]
     if @search != ""
-      @coupon_items = Coupon.active.joins(:business).where('short_description LIKE ? OR businesses.name LIKE ?', "%#{@search}%", "%#{@search}%").order(sort_by).paginate(:page => params[:page], :per_page => 10) 
+      @coupon_items = Coupon.active.joins(:business).where('UPPER(short_description) LIKE ? OR UPPER(businesses.name) LIKE ?', "%#{@search.upcase}%", "%#{@search.upcase}%").order(sort_by).paginate(:page => params[:page], :per_page => 10) 
     else 
       @coupon_items = ""
     end      
