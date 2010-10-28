@@ -30,14 +30,18 @@
   <div class="coupon_rating_stars">
     <%= form_tag(rate_coupon_path(@coupon.id), :remote => true) %>
       <% (0.5..5).step(0.5) do |n| %>
-        <% @rating_star = (@coupon.rating*2+0.5).floor/2.0  %>  
+        <% @rating_star = @coupon.rating.nil? ? 0 : (@coupon.rating*2+0.5).floor/2.0  %>  
         <input name="star_rating" type="radio" class="coupon_rating_star {split:2}" value="<%= n %>" <%= @rating_star == n ? "checked" : "" %> />
       <% end %>
     </form>
     <div class="clear"></div>
   </div>
   <div class="coupon_rating_stats">
-    Rated <%= '%.1f' % @coupon.rating %> based on <%= pluralize @coupon.total_ratings, 'rating' %>
+    <% if @rating_star = 0 %>
+      Coupon is not yet rated. Please be the first!
+    <% else %>
+      Rated <%= '%.1f' % @coupon.rating %> based on <%= pluralize @coupon.total_ratings, 'rating' %>
+    <% end %>
   </div>
 </div>
 
