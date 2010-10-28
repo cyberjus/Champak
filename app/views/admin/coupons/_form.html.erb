@@ -44,7 +44,7 @@
 <div class="field">
   <label>Current Image</label>
   <% if @coupon.image.exists? %>  
-    <%= image_tag @coupon.image.url %>
+    <%= image_tag @coupon.image.url(:page) %>
   <% else %>
     <div class="not_found">No Image Set</div>
   <% end %>
