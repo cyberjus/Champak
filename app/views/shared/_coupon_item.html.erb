@@ -12,10 +12,16 @@
   <% if defined?(show_ratings) && :show_ratings %>
   <div class="rating">
       <% (0.5..5).step(0.5) do |n| %>
-        <% @rating_star = (coupon_item.rating*2+0.5).floor/2.0  %>  
+        <% @rating_star = coupon_item.rating.nil? ? 0 : (@coupon.rating*2+0.5).floor/2.0  %>  
         <input name="star_rating_<%= coupon_item.id %>" type="radio" class="star {split:2}" value="<%= n %>" <%= @rating_star == n ? "checked" : "" %> disabled="disabled" />
       <% end %>
-    <div class="rating_summary">Rated <%= '%.1f' % coupon_item.rating %> based on <%= pluralize coupon_item.total_ratings, 'rating' %></div>
+    <div class="rating_summary">
+    <% if @rating_star == 0 %>
+      Coupon is not yet rated.
+    <% else %>
+    Rated <%= '%.1f' % coupon_item.rating %> based on <%= pluralize coupon_item.total_ratings, 'rating' %>
+    <% end %>
+  </div>
     <div class="clear"></div>
   </div>
   <% end %>
