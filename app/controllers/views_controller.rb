@@ -134,7 +134,7 @@ class ViewsController < ApplicationController
   end
   
   def url_escape(url)
-    URI.escape(url.sub('%',' percent').sub('/', '%25').tr(' ', '-'))
+    CGI.escape(url.sub('%',' percent').sub('/', '%25').tr(' ', '-'))
   end
   
 end
