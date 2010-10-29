@@ -1,5 +1,5 @@
 class Ad < ActiveRecord::Base
-  attr_accessible :name, :banner_type, :image
+  attr_accessible :name, :banner_type, :image, :url
   has_attached_file :image, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => "ad/:id/:style.:extension"
   
   validates :name, :presence => true

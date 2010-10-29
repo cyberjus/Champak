@@ -8,6 +8,10 @@
   <%= select(:ad, :banner_type, Ad::TYPES) %>
 </div>
 <div class="field">
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+</div>
+<div class="field">
   <%= f.label :image %>
   <%= f.file_field :image %>
 </div>

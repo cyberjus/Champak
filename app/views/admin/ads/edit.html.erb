@@ -1,0 +1,14 @@
+<% content_for :side_menu do %>
+  <div id="admin_side_menu">
+    <%= button_to 'Delete Ad', admin_ad_path(@ad), :method => :delete, :confirm => "Are you sure you would like to delete this coupon?", :class => 'lg_button' %>
+  </div>
+<% end %>
+
+<div class="title">Edit Banner Ad</div>
+
+<%= form_for(@ad, :url => admin_ad_path, :html => { :class => 'admin_form', :multipart => true }) do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <div class="actions">
+    <%= f.submit "Update", :disable_with => 'Saving...', :class => 'lg_button' %>
+  </div>
+<% end %>

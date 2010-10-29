@@ -15,7 +15,9 @@ $(function() {
   $('#search_button').click(search_site)
   $('#search').keypress(function(e) { if (e.keyCode == '13') { $('#search_button').click(); }});
   $('.print_coupon_link').click(function(e) { display_print_coupon($(this).attr('href')); e.preventDefault(); return false; });
-  $('.coupon_rating_star').rating({ callback: submit_coupon_rating });
+  if (jQuery.isFunction(jQuery.fn.rating)) {
+    $('.coupon_rating_star').rating({ callback: submit_coupon_rating });
+  }
   if ($('#featured_coupons').length>0) {
 		$('#featured_selector_prev').click(featured_show_prev);
 		$('#featured_selector_next').click(featured_show_next);
