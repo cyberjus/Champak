@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-body { text-align:center; margin:0px; font-family:Verdana,Sans-Serif; font-size:12px; } 
+body { text-align:center; margin:0px; font-family:Verdana,Sans-Serif; font-size:12px; color:#000; } 
 input { font-family:Verdana,Sans-Serif; }
 select { font-family:Verdana,Sans-Serif; }
 textarea { font-family:Verdana,Sans-Serif; }
@@ -15,6 +15,7 @@ a:hover { color:#BF5B25; text-decoration:underline; }
 #header_logo { position:absolute; top:20px; left:20px; } 
 #header_title { position:absolute; top:25px; left:240px; }
 #header_links { position:absolute; top:55px; left:500px; } 
+#header_links a { color:#000; }
 #header_links ul { list-style:none; margin:0px; padding:0px; } 
 #header_links ul li { font-size:10px; height:14px; line-height:14px; background:url(../images/header_menu_point.png) left no-repeat; padding-left:10px; }
 #header_search { position:absolute; top:40px; left:600px; border-left:solid 1px #999; padding:12px 0px 0px 15px; font-size:10px; } 
