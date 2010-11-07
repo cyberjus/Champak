@@ -21,6 +21,10 @@ class PagesController < ApplicationController
     @title = "For Businesses"
   end
   
+  def why_coupons
+    @title = "Why Coupons"
+  end
+  
   def help_popup
     @title = "Disabling Popup Blockers"
   end

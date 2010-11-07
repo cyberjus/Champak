@@ -3,6 +3,7 @@ class ViewsController < ApplicationController
   def by_category
     @name = params[:name].tr('-', ' ').sub(' Coupons','')
     @title = "#{@name} Coupons"
+    @meta_keywords = "#{@name}, #{@name} Deals, #{@title}"
     category = Category.find_by_name(@name)
     @coupon_items = Coupon.active.where("category_id = ?", category.id).includes(:business).order(sort_by).where(filter_town) .paginate(:page => params[:page], :per_page => 10)
     render 'coupon_list'
@@ -11,12 +12,14 @@ class ViewsController < ApplicationController
   def by_town
     @name = params[:name].tr('-', ' ').sub(' Coupons','')
     @title = "#{@name} Coupons"
+    @meta_keywords = "#{@name}, #{@name} Deals, #{@title}"
     @coupon_items = Coupon.active.joins(:business).where('businesses.town = ?', @name).order(sort_by).where(filter_category).paginate(:page => params[:page], :per_page => 10)
     render 'coupon_list'
   end
   
   def by_new
     @title = "New Coupons"
+    @meta_keywords = "New Coupons, New Deals"
     @coupon_items = Coupon.active.where("coupons.created_at >= ?", Time.now.months_ago(1)).includes(:business).order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
     render 'coupon_list'
   end
@@ -28,6 +31,7 @@ class ViewsController < ApplicationController
       if Rails.env.production?
         params[:sort] ||= 'distance'
         @title = "Coupons within #{@distance} miles of #{@zipcode}"
+        @meta_keywords = "#{@zipcode} Coupons"
         @coupon_items = Coupon.active.joins(:business).within(@distance, :origin => @zipcode).order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10)
         render 'coupon_list'
       else 
@@ -44,6 +48,7 @@ class ViewsController < ApplicationController
   
   def by_hot
     @title = "Hot Coupons"
+    @meta_keywords = "Hot Coupons, Hot Deals"
     params[:sort] ||= 'popular'
     sql = "SELECT coupons.*, businesses.name  FROM (SELECT coupons.* FROM coupons ORDER BY prints DESC LIMIT 10) as coupons JOIN businesses ON businesses.id = coupons.business_id WHERE coupons.valid_until >= CURRENT_DATE AND coupons.valid_from <= CURRENT_DATE "
     sql += " AND  businesses.town = '#{params[:filter_town].tr('-', ' ')}' " if filter_town 
@@ -55,6 +60,7 @@ class ViewsController < ApplicationController
   
   def by_online_only
     @title = "Online Only Coupons"
+    @meta_keywords = "Online Only Coupons, Online Only Deals"
     @coupon_items = Coupon.active.where("online_only = ?", true).includes(:business).order(sort_by).where(filter_town).where(filter_category).paginate(:page => params[:page], :per_page => 10) 
     render 'coupon_list'
   end
@@ -73,6 +79,8 @@ class ViewsController < ApplicationController
   def coupon
     @coupon = Coupon.find(params[:id])
     @title = "#{@coupon.business.name} Coupon"
+    @meta_keywords = "#{@coupon.business.name}, #{@coupon.business.name} Coupon, #{@coupon.business.name} Deals"
+    @meta_description = "Coupon for #{@coupon.short_description} at #{@coupon.business.name}, #{@coupon.business.town}, #{@coupon.business.state}."
     @suggest_town = Coupon.active.where('coupons.id <> ?', @coupon.id).joins(:business).where('businesses.town = ?', @coupon.business.town).order("RANDOM()").first()
     @suggest_cat = Coupon.active.where('coupons.id <> ?', @coupon.id).includes(:business).joins(:category).where('categories.name = ?', @coupon.category.name).order("RANDOM()").first()
   end

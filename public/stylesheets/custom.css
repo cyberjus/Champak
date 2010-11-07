@@ -20,7 +20,7 @@ a:hover { color:#BF5B25; text-decoration:underline; }
 #header_links ul li { font-size:10px; height:14px; line-height:14px; background:url(../images/header_menu_point.png) left no-repeat; padding-left:10px; }
 #header_search { position:absolute; top:40px; left:600px; border-left:solid 1px #999; padding:12px 0px 0px 15px; font-size:10px; } 
 #header_search input { } 
-#header_search input.search_text { width:230px; border:1px solid #999; font-size:16px; margin-top:0px; }
+#header_search input.search_text { width:225px; border:1px solid #999; font-size:16px; margin-top:0px; }
 #header_search input.search_button { height:22px; float:right; font-size: 10px; }
 #header_saved { position:absolute; top:5px; left:530px; font-weight:bold; }
 #header_saved img { margin:0px 1px; border:1px solid #333; }
@@ -125,6 +125,11 @@ table.admin_table td { padding:5px; color:#333; border-left:solid thin #AAA; bor
 table.admin_table tr:hover { background-color:#EEE; }
 div.admin_filter_table { float:right; margin-top:16px; font-size:14px; }
 
+table.contact_table { border-collapse:collapse; width:100%; border-bottom:2px solid #666; border-top:2px solid #666; }
+table.contact_table tr { height:20px; background:#FFF; border-bottom:solid 1px #666; }
+table.contact_table tr.alt { background:#CCC; }
+table.contact_table td { padding:5px; }
+
 div.admin_paging { text-align:center; }
 
 form.admin_form { }
@@ -149,7 +154,7 @@ form.login_form .actions { margin-top:10px; margin-left:20px; }
 div.clear { clear:both; }
 div.clear10 { height:10px; clear:both; } 
 div.clear20 { height:20px; clear:both; }
-div.title { font-size:26px; border-bottom:2px solid #274274; margin-bottom:5px;} 
+div.title { font-size:26px; border-bottom:2px solid #274274; margin-bottom:5px; } 
 div.subtitle { font-size:16px; font-weight:bold; color:#981F27; margin-top:10px; margin-bottom:5px; }
 div.right_content { float:right; text-align:right; border:1px solid #274274; padding:5px; background:#FFFF9F; }
 
@@ -168,6 +173,15 @@ div.suggest_box .description { font-size:12px; }
 div.suggest_box .all { margin-top:5px; font-size:10px; }
 
 img.print_coupon { width:100%; }
+
+div.for_businesses div.title { font-size:26px; background-color:#274274; color:#FFF; margin-bottom:10px; font-weight:bold; text-align:center; padding:5px;  }
+div.for_businesses div.subtitle { font-size:18px; }
+div.for_businesses p { font-size:14px; margin-top:10px; margin-bottom:2px; }
+div.for_businesses div.fact { font-size:12px; background-color:#CCC; border:1px solid #999; padding:5px; margin:0px 10px; }
+div.for_businesses div.source { font-size:10px; color:#666; }
+div.for_businesses ol { font-size:16px; color:#981F27; font-weight:bold; }
+div.for_businesses li p { font-size:14px; margin-bottom:5px; color:#000; font-weight:normal; }
+
 
 div.warning_box { background:#FFFF99; border:1px solid #FFCC33; font-size:11px; padding:4px; }
 div.warning_box img { vertical-align:middle; }

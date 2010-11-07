@@ -25,6 +25,7 @@ Champax::Application.routes.draw do
   match "/Help/Disable-Popups" => 'pages#help_popups', :as => :help_popup
   match "/About" => 'pages#about', :as => :about
   match "/For-Businesses" => 'pages#for_businesses', :as => :for_businesses 
+  match "/For-Businesses/Why-Coupons" => 'pages#why_coupons', :as => :why_coupons 
   match "/print/:id" => 'views#print_coupon'
   match "/ajax/rate_coupon/:id", :to => "views#rate_coupon", :as => :rate_coupon
   match "/:name/c" => 'views#by_category'
