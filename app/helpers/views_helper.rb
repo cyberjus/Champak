@@ -14,7 +14,7 @@ module ViewsHelper
   
   def filter_by_town(coupons)
     unless coupons.nil?
-      towns = coupons.collect{ |c| [c.business.town, c.business.town] }.uniq.sort.insert(0, ['-----------', '']).insert(0, [' Town  ', ''])
+      towns = coupons.collect{ |c| [c.business.town.titleize, c.business.town.titleize] }.uniq.sort.insert(0, ['-----------', '']).insert(0, [' Town  ', ''])
       select_tag "filter_town", options_for_select(towns)
     end
   end

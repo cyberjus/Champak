@@ -130,7 +130,7 @@ class ViewsController < ApplicationController
   def filter_town
     if params[:filter_town]
       @filter_town = params[:filter_town]
-      return ["businesses.town = ?", params[:filter_town].tr('-', ' ')]
+      return ["UPPER(businesses.town) = ?", params[:filter_town].tr('-', ' ').upcase]
     end 
   end
   
