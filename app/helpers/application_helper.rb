@@ -19,7 +19,7 @@ module ApplicationHelper
   end
   
   def select_by_town
-    towns = Business.find(:all, { :select => 'DISTINCT town', :order=> 'town' }).collect { |c| [c.town, c.town] }.insert(0,"")
+    towns = Business.find(:all, { :select => 'DISTINCT UPPER(town) as town', :order=> 'town' }).collect { |c| [c.town.titleize, c.town.titleize] }.insert(0,"")
     select_tag "select_town", options_for_select(towns) 
   end
   

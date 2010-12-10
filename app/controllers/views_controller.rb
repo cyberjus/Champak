@@ -13,7 +13,7 @@ class ViewsController < ApplicationController
     @name = params[:name].tr('-', ' ').sub(' Coupons','')
     @title = "#{@name} Coupons"
     @meta_keywords = "#{@name}, #{@name} Deals, #{@title}"
-    @coupon_items = Coupon.active.joins(:business).where('businesses.town = ?', @name).order(sort_by).where(filter_category).paginate(:page => params[:page], :per_page => 10)
+    @coupon_items = Coupon.active.joins(:business).where('UPPER(businesses.town) = ?', @name.upcase).order(sort_by).where(filter_category).paginate(:page => params[:page], :per_page => 10)
     render 'coupon_list'
   end
   
